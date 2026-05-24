@@ -1,245 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zuppy – Family Chore Manager | Bairat Labs</title>
-  <meta name="description" content="Track chores, reward achievements, and build responsibility in children. The ad-free family chore app. Download today.">
-  <style>
-
-:root {
-  --purple: #6B48FF;
-  --purple-light: #EEE9FF;
-  --text: #1a1a2e;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --bg: #f9fafb;
-  --white: #ffffff;
-  --radius: 14px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zuppy – Kids Earn Real Money. Families Build Great Habits.</title>
+<style>
+:root{--purple:#6B48FF;--purple-light:#EEE9FF;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--bg:#f9fafb;--white:#ffffff;--radius:14px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+.nav-logo-icon{width:36px;height:36px;background:var(--purple);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:20px;}
+.nav-logo-text{font-weight:700;font-size:1.1rem;}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;}
+.nav-links a:hover{color:var(--purple);}
+.nav-cta{background:var(--purple);color:white!important;padding:8px 18px;border-radius:8px;font-weight:600;}
+.nav-cta:hover{opacity:.9;}
+section{padding:80px 24px;}
+.container{max-width:960px;margin:0 auto;}
+.hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);padding:100px 24px;}
+.hero .container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(107,72,255,.2);border:1px solid rgba(107,72,255,.4);color:#a78bfa;padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:24px;}
+.hero h1{font-size:2.8rem;font-weight:800;color:white;line-height:1.15;margin-bottom:20px;}
+.hero h1 span{color:#a78bfa;}
+.hero p{font-size:1.15rem;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:36px;}
+.store-badges{display:flex;gap:14px;flex-wrap:wrap;}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:12px;font-weight:600;text-decoration:none;transition:all .2s;}
+.badge-apple{background:white;color:#1a1a2e;font-size:.95rem;}
+.badge-apple:hover{background:#f0eeff;transform:translateY(-1px);}
+.badge-android{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:.95rem;cursor:default;border:1px solid rgba(255,255,255,.15);}
+.badge svg{width:24px;height:24px;flex-shrink:0;}
+.hero-visual{display:flex;justify-content:center;}
+.phone-mockup{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:32px;padding:24px;text-align:center;max-width:280px;width:100%;}
+.wallet-display{background:linear-gradient(135deg,var(--purple),#4f35cc);border-radius:20px;padding:24px;margin-bottom:16px;}
+.wallet-display h3{color:rgba(255,255,255,.7);font-size:.8rem;font-weight:500;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;}
+.wallet-display .balance{color:white;font-size:2.4rem;font-weight:800;}
+.wallet-jars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.jar{background:rgba(255,255,255,.07);border-radius:12px;padding:12px 8px;text-align:center;}
+.jar-icon{font-size:1.4rem;margin-bottom:4px;}
+.jar-label{color:rgba(255,255,255,.6);font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.3px;}
+.jar-amount{color:white;font-size:1.1rem;font-weight:700;margin-top:2px;}
+.wallet-section{background:var(--white);}
+.section-label{font-size:.8rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+.section-title{font-size:2rem;font-weight:800;margin-bottom:16px;line-height:1.2;}
+.section-subtitle{font-size:1.1rem;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:48px;}
+.wallet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.wallet-card{padding:28px;border-radius:var(--radius);border:2px solid;}
+.wallet-card.spend{border-color:#3b82f6;background:#eff6ff;}
+.wallet-card.save{border-color:var(--purple);background:var(--purple-light);}
+.wallet-card.give{border-color:#22c55e;background:#f0fdf4;}
+.wallet-card-icon{font-size:2rem;margin-bottom:12px;}
+.wallet-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.wallet-card p{color:var(--muted);font-size:.9rem;line-height:1.6;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.feature-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:28px;}
+.feature-icon{width:48px;height:48px;border-radius:12px;background:var(--purple-light);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px;}
+.feature-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;}
+.feature-card p{color:var(--muted);font-size:.9rem;line-height:1.6;}
+.how-section{background:var(--white);}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.step{text-align:center;padding:24px 16px;}
+.step-num{width:48px;height:48px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;margin:0 auto 16px;}
+.step h3{font-size:1rem;font-weight:700;margin-bottom:8px;}
+.step p{color:var(--muted);font-size:.88rem;line-height:1.5;}
+.creator-section{background:linear-gradient(135deg,#1a1a2e,#16213e);}
+.creator-section .section-label{color:#a78bfa;}
+.creator-section .section-title{color:white;}
+.creator-section .section-subtitle{color:rgba(255,255,255,.7);}
+.rates-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:40px;}
+.rate-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:28px;}
+.rate-amount{font-size:2.2rem;font-weight:800;color:#a78bfa;margin-bottom:4px;}
+.rate-label{color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:12px;}
+.rate-desc{color:rgba(255,255,255,.8);font-size:.9rem;line-height:1.6;}
+.creator-cta{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:white;padding:14px 28px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:white;padding:14px 28px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid rgba(255,255,255,.2);transition:all .2s;}
+.btn-secondary:hover{background:rgba(255,255,255,.15);}
+.cta-section{text-align:center;}
+.cta-section .section-title{font-size:2.4rem;}
+.cta-section .section-subtitle{margin:0 auto 40px;}
+.cta-badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.badge-large{display:inline-flex;align-items:center;gap:12px;padding:14px 28px;border-radius:14px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;}
+.badge-large.apple{background:var(--text);color:white;}
+.badge-large.apple:hover{background:#333;}
+.badge-large.android{background:var(--border);color:var(--muted);cursor:default;}
+footer{background:var(--text);color:rgba(255,255,255,.7);padding:40px 24px;text-align:center;}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:16px;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.9rem;}
+.footer-links a:hover{color:white;}
+@media(max-width:768px){
+  .hero .container{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .hero h1{font-size:2rem;}
+  .wallet-grid,.features-grid,.steps-grid,.rates-grid{grid-template-columns:1fr;}
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
-a { color: inherit; text-decoration: none; }
-main { flex: 1; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-
-/* Header */
-header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,.04); }
-.header-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.logo { font-size: 1rem; font-weight: 800; color: var(--purple); letter-spacing: -0.3px; }
-nav { display: flex; gap: 1.75rem; align-items: center; }
-nav a { font-size: 0.875rem; color: var(--muted); font-weight: 500; transition: color 0.2s; }
-nav a:hover, nav a.active { color: var(--purple); }
-
-/* Footer */
-footer { background: var(--white); border-top: 1px solid var(--border); padding: 3rem 2rem 2rem; }
-.footer-inner { max-width: 1100px; margin: 0 auto; }
-.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
-.footer-brand { font-weight: 800; color: var(--purple); font-size: 1rem; margin-bottom: 0.6rem; }
-.footer-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
-.footer-nav h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.9rem; font-weight: 700; }
-.footer-nav a { display: block; font-size: 0.875rem; color: var(--muted); margin-bottom: 0.5rem; transition: color 0.2s; }
-.footer-nav a:hover { color: var(--purple); }
-.footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; font-size: 0.8rem; color: var(--muted); }
-
-/* Hero */
-.hero { padding: 6rem 2rem 5rem; text-align: center; }
-.hero-badge { display: inline-block; background: var(--purple-light); color: var(--purple); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.95rem; border-radius: 100px; margin-bottom: 1.5rem; letter-spacing: 0.03em; }
-.hero h1 { font-size: 3rem; font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 1.25rem; max-width: 720px; margin-left: auto; margin-right: auto; }
-.hero p { font-size: 1.125rem; color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; }
-.hero-stores { display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.75rem; }
-.safe-badges { display: flex; gap: 0.625rem; justify-content: center; flex-wrap: wrap; }
-.badge { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--white); border: 1px solid var(--border); padding: 0.35rem 0.9rem; border-radius: 100px; font-size: 0.78rem; color: var(--muted); font-weight: 500; }
-
-/* Store Buttons */
-.store-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 11px; font-weight: 700; font-size: 0.875rem; transition: all 0.18s; letter-spacing: -0.1px; }
-.store-btn-apple { background: #0a0a0a; color: #fff; }
-.store-btn-apple:hover { background: #2a2a2a; transform: translateY(-1px); }
-.store-btn-google { background: #fff; color: #111; border: 1.5px solid #ddd; }
-.store-btn-google:hover { background: #f8f8f8; border-color: #bbb; transform: translateY(-1px); }
-
-/* Features */
-.features { padding: 5rem 2rem; background: var(--white); }
-.features-header { text-align: center; margin-bottom: 3.5rem; }
-.section-badge { display: inline-block; background: var(--purple-light); color: var(--purple); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.95rem; border-radius: 100px; margin-bottom: 1rem; letter-spacing: 0.03em; }
-.section-title { font-size: 2.25rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.75px; margin-bottom: 0.75rem; }
-.section-sub { font-size: 1rem; color: var(--muted); max-width: 520px; margin: 0 auto; }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
-.feature-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; transition: box-shadow 0.2s; }
-.feature-card:hover { box-shadow: 0 4px 20px rgba(107,72,255,.08); }
-.feature-icon { font-size: 1.75rem; margin-bottom: 1rem; }
-.feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-.feature-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
-
-/* CTA */
-.cta { padding: 2rem 2rem 5rem; }
-.cta-inner { background: linear-gradient(135deg, #6B48FF 0%, #9B6BFF 100%); color: white; border-radius: 20px; padding: 4.5rem 3rem; text-align: center; max-width: 1100px; margin: 0 auto; }
-.cta-inner h2 { font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.75px; }
-.cta-inner p { font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 480px; margin: 0 auto 2.25rem; }
-.cta-stores { display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; }
-.cta-inner .store-btn-apple { background: rgba(255,255,255,0.15); color: white; border: 1.5px solid rgba(255,255,255,.25); }
-.cta-inner .store-btn-apple:hover { background: rgba(255,255,255,0.25); }
-.cta-inner .store-btn-google { background: white; color: #111; border-color: transparent; }
-.cta-inner .store-btn-google:hover { background: #eee; }
-.privacy-link { display: block; margin-top: 1.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.6); }
-.privacy-link a { color: rgba(255,255,255,0.85); text-decoration: underline; }
-.privacy-link a:hover { color: white; }
-
-/* Privacy */
-.privacy-page { max-width: 760px; margin: 0 auto; padding: 4rem 2rem 6rem; }
-.privacy-page .app-badge { display: inline-block; background: var(--purple-light); color: var(--purple); font-size: 0.78rem; font-weight: 700; padding: 0.25rem 0.8rem; border-radius: 100px; margin-bottom: 1rem; letter-spacing: 0.03em; }
-.privacy-page h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
-.privacy-page .meta { color: var(--muted); font-size: 0.875rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-.privacy-page h2 { font-size: 1.15rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; }
-.privacy-page p { color: var(--muted); margin-bottom: 1rem; font-size: 0.9375rem; line-height: 1.7; }
-.privacy-page ul { margin: 0.5rem 0 1rem 1.5rem; color: var(--muted); font-size: 0.9375rem; line-height: 1.7; }
-.privacy-page ul li { margin-bottom: 0.4rem; }
-.privacy-page a { color: var(--purple); text-decoration: underline; }
-.highlight-box { background: var(--purple-light); border-left: 4px solid var(--purple); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 2rem 0; }
-.highlight-box p { color: var(--text) !important; font-weight: 500; margin: 0 !important; }
-
-/* Contact */
-.contact-page { max-width: 640px; margin: 0 auto; padding: 7rem 2rem; text-align: center; }
-.contact-page h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.75px; }
-.contact-page .lead { font-size: 1.05rem; color: var(--muted); max-width: 460px; margin: 0 auto 2.5rem; }
-.contact-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; margin-bottom: 1.25rem; }
-.contact-email { color: var(--purple); font-size: 1.2rem; font-weight: 700; text-decoration: underline; word-break: break-all; }
-.contact-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
-.contact-links a { display: block; color: var(--purple); text-decoration: underline; margin-bottom: 0.5rem; font-size: 0.9rem; }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
-}
-@media (max-width: 640px) {
-  .hero h1 { font-size: 2.1rem; letter-spacing: -0.75px; }
-  .hero { padding: 4rem 1.5rem 3.5rem; }
-  nav { gap: 1rem; }
-  nav a { font-size: 0.8rem; }
-  .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
-  .cta-inner { padding: 3rem 1.5rem; border-radius: 16px; }
-  .cta-inner h2 { font-size: 1.75rem; }
-  .section-title { font-size: 1.85rem; }
-}
-@media (max-width: 480px) {
-  .header-inner { padding: 0 1rem; }
-  nav { gap: 0.75rem; }
-}
-
-  </style>
+</style>
 </head>
 <body>
-<header>
-  <div class="header-inner">
-    <a href="/" class="logo">✦ Bairat Labs</a>
-    <nav>
-      <a href="/toldforyou">Told for You</a>
-      <a href="/hush">Hush</a>
-      <a href="/zuppy" class="active">Zuppy</a>
-      <a href="/contact">Contact</a>
-    </nav>
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">&#127968;</div>
+    <span class="nav-logo-text">Bairat Labs</span>
+  </a>
+  <div class="nav-links">
+    <a href="/toldforyou">Told for You</a>
+    <a href="/hush">Hush</a>
+    <a href="/contact">Contact</a>
+    <a href="https://apps.apple.com/app/zuppy-chore-app-for-families/id6769274625" class="nav-cta">Download Zuppy</a>
   </div>
-</header>
-<main>
+</nav>
 
-  <section class="hero">
-    <div class="hero-badge">&#127968; Family Chore Manager</div>
-    <h1>Making chores fun,<br>responsibility real</h1>
-    <p>The chore manager for modern families. Track tasks, celebrate achievements, and watch your children grow into responsible little helpers &mdash; together.</p>
-    <div class="hero-stores">
-      <a href="#" class="store-btn store-btn-apple">&#xf8ff; App Store</a>
-      <a href="#" class="store-btn store-btn-google">&#9654; Google Play</a>
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="hero-badge">&#128184; Real Money. Real Habits.</div>
+      <h1>Kids earn <span>real money</span>.<br>Families build great habits.</h1>
+      <p>Zuppy is the chore and allowance app that connects to your real bank. Kids complete chores, earn real money, and learn to Spend, Save, and Give &mdash; building financial literacy from day one.</p>
+      <div class="store-badges">
+        <a href="https://apps.apple.com/app/zuppy-chore-app-for-families/id6769274625" class="badge badge-apple" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on the App Store
+        </a>
+        <span class="badge badge-android">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg>
+          Android &mdash; Coming Soon
+        </span>
+      </div>
     </div>
-    <div class="safe-badges">
-      <span class="badge">&#128106; Family collaboration</span>
-      <span class="badge">&#128683; No ads, ever</span>
-      <span class="badge">&#127942; Reward systems</span>
-      <span class="badge">&#11088; Builds responsibility</span>
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <div class="wallet-display">
+          <h3>Emma's Wallet</h3>
+          <div class="balance">$24.50</div>
+        </div>
+        <div class="wallet-jars">
+          <div class="jar"><div class="jar-icon">&#128717;</div><div class="jar-label">Spend</div><div class="jar-amount">$12.00</div></div>
+          <div class="jar"><div class="jar-icon">&#127183;</div><div class="jar-label">Save</div><div class="jar-amount">$10.00</div></div>
+          <div class="jar"><div class="jar-icon">&#10084;&#65039;</div><div class="jar-label">Give</div><div class="jar-amount">$2.50</div></div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="features">
-    <div class="features-header">
-      <div class="section-badge">How Zuppy works</div>
-      <h2 class="section-title">A whole family works better together</h2>
-      <p class="section-sub">Zuppy makes household tasks transparent, fair, and even fun &mdash; for parents and children alike.</p>
+<section class="wallet-section">
+  <div class="container">
+    <div class="section-label">The Spend &bull; Save &bull; Give Wallet</div>
+    <h2 class="section-title">Three jars. Lifelong lessons.</h2>
+    <p class="section-subtitle">Every dollar kids earn is automatically split into three jars &mdash; teaching real money habits that stick long after childhood.</p>
+    <div class="wallet-grid">
+      <div class="wallet-card spend"><div class="wallet-card-icon">&#128717;</div><h3>Spend</h3><p>Guilt-free spending for things kids want now. Seeing the balance go down teaches real budgeting instincts.</p></div>
+      <div class="wallet-card save"><div class="wallet-card-icon">&#127183;</div><h3>Save</h3><p>Set savings goals for big-ticket items. Watching progress toward something they want builds patience.</p></div>
+      <div class="wallet-card give"><div class="wallet-card-icon">&#10084;&#65039;</div><h3>Give</h3><p>Choose a cause, donate some earnings. Kids develop empathy and generosity as a natural part of earning.</p></div>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything families need. Nothing they don't.</h2>
+    <p class="section-subtitle">Built for real family life &mdash; from toddlers learning responsibility to teenagers managing their own finances.</p>
     <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">&#9989;</div>
-        <h3>Chore Tracking</h3>
-        <p>Create, assign, and track household chores for every family member. Everyone knows what needs doing and can see when it&rsquo;s done.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#127942;</div>
-        <h3>Reward Systems</h3>
-        <p>Set up points, stars, or custom rewards for completed chores. Children earn their way to prizes, screen time, or special privileges.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128106;</div>
-        <h3>Family Collaboration</h3>
-        <p>A shared family view so everyone can see progress, cheer each other on, and celebrate together when chores are done.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#11088;</div>
-        <h3>Builds Responsibility</h3>
-        <p>Children learn accountability and the satisfaction of completing tasks &mdash; habits that carry them through life.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128197;</div>
-        <h3>Recurring Schedules</h3>
-        <p>Set up daily, weekly, or custom repeating chores so nothing falls through the cracks &mdash; no nagging required.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128683;</div>
-        <h3>Zero Ads</h3>
-        <p>Zuppy is completely ad-free. No distractions, no manipulation &mdash; just a tool that helps your family thrive.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="cta-inner">
-      <h2>Bring harmony to your household</h2>
-      <p>Start building a culture of responsibility and teamwork in your family today.</p>
-      <div class="cta-stores">
-        <a href="#" class="store-btn store-btn-apple">&#xf8ff; App Store</a>
-      <a href="#" class="store-btn store-btn-google">&#9654; Google Play</a>
-      </div>
-      <p class="privacy-link">No ads. No data selling. <a href="/zuppy/privacy">Read our privacy policy &rarr;</a></p>
-    </div>
-  </section>
-</main>
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand">✦ Bairat Labs</div>
-        <p class="footer-desc">Building thoughtful, ad-free apps for children and families. No ads. No data selling. Ever.</p>
-      </div>
-      <div class="footer-nav">
-        <h4>Apps</h4>
-        <a href="/toldforyou">Told for You</a>
-        <a href="/hush">Hush</a>
-        <a href="/zuppy">Zuppy</a>
-      </div>
-      <div class="footer-nav">
-        <h4>Privacy</h4>
-        <a href="/toldforyou/privacy">Told for You</a>
-        <a href="/hush/privacy">Hush</a>
-        <a href="/zuppy/privacy">Zuppy</a>
-      </div>
-      <div class="footer-nav">
-        <h4>Company</h4>
-        <a href="/contact">Contact Us</a>
-        <a href="mailto:bairatlabs@gmail.com">bairatlabs@gmail.com</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2025 Bairat Labs. All rights reserved.</span>
-      <span>Ad-free &middot; Child-safe &middot; Family-first</span>
+      <div class="feature-card"><div class="feature-icon">&#9989;</div><h3>Chore Assignment</h3><p>Parents assign chores with descriptions, photos, and reward amounts. Kids check them off in the app.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#128181;</div><h3>Real Money Earnings</h3><p>Connected to your real bank account. When kids complete chores, they earn actual money &mdash; not points.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#127919;</div><h3>Savings Goals</h3><p>Kids can set savings goals with a target amount and track progress visually. Great for learning planning.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#128293;</div><h3>Streaks &amp; Badges</h3><p>Keep kids motivated with daily streaks and achievement badges for completing chores on time.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#128260;</div><h3>Recurring Schedules</h3><p>Set chores to repeat daily, weekly, or on custom schedules. Routines run on autopilot.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#128683;</div><h3>Zero Ads, Always</h3><p>No ads, no in-app purchases for kids, no dark patterns. A clean, safe environment for all ages.</p></div>
     </div>
   </div>
+</section>
+
+<section class="how-section">
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Up and running in minutes</h2>
+    <p class="section-subtitle">No complicated setup. Just download, connect, and start building great habits.</p>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">1</div><h3>Download &amp; Sign Up</h3><p>Create a parent account in seconds using Sign in with Apple or Google.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Add Your Kids</h3><p>Add up to 6 children, ages 4&ndash;16. Each gets their own Spend-Save-Give wallet.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Assign Chores</h3><p>Set chores, schedules, and reward amounts. Kids see their tasks and get notified.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Kids Earn &amp; Learn</h3><p>Completed chores trigger real payments. Kids watch their jars fill up in real time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="creator-section">
+  <div class="container">
+    <div class="section-label">Creator Partner Program</div>
+    <h2 class="section-title">Earn with every family you bring in</h2>
+    <p class="section-subtitle">Got an audience of parents? Partner with Zuppy and earn recurring commissions for every family that subscribes through your link.</p>
+    <div class="rates-grid">
+      <div class="rate-card"><div class="rate-amount">$5</div><div class="rate-label">per monthly subscriber</div><div class="rate-desc">Earn $5 every month for each family on a monthly plan &mdash; for as long as they stay subscribed.</div></div>
+      <div class="rate-card"><div class="rate-amount">$10</div><div class="rate-label">per annual subscriber</div><div class="rate-desc">One family signing up for a yearly plan puts $10 in your pocket, paid upfront.</div></div>
+    </div>
+    <div class="creator-cta">
+      <a href="/zuppy/creators-brief" class="btn-primary">&#128196; View Creator Brief</a>
+      <a href="https://apps.apple.com/app/zuppy-chore-app-for-families/id6769274625" class="btn-secondary" target="_blank">Try Zuppy First</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="section-label">Get Started Free</div>
+    <h2 class="section-title">Ready to raise financially savvy kids?</h2>
+    <p class="section-subtitle">Join thousands of families already using Zuppy to turn chores into life lessons. Free to try &mdash; no credit card required.</p>
+    <div class="cta-badges">
+      <a href="https://apps.apple.com/app/zuppy-chore-app-for-families/id6769274625" class="badge-large apple" target="_blank">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+      </a>
+      <span class="badge-large android">Android &mdash; Coming Soon</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/zuppy/privacy">Privacy Policy</a>
+    <a href="/zuppy/creators-brief">Creator Brief</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <p>&copy; 2025 Bairat Labs. All rights reserved.</p>
 </footer>
 </body>
 </html>
