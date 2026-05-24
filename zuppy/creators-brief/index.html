@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zuppy Creator Brief – Partner Program</title>
+<style>
+:root{--purple:#6B48FF;--purple-light:#EEE9FF;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--bg:#f9fafb;--white:#ffffff;--radius:14px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+.nav-logo-icon{width:36px;height:36px;background:var(--purple);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:20px;}
+.nav-logo-text{font-weight:700;font-size:1.1rem;}
+.back-link{color:var(--purple);text-decoration:none;font-size:.95rem;font-weight:500;}
+.back-link:hover{text-decoration:underline;}
+.hero{background:linear-gradient(135deg,#1a1a2e,#16213e);padding:60px 24px;text-align:center;}
+.hero h1{font-size:2.2rem;font-weight:800;color:white;margin-bottom:12px;}
+.hero p{color:rgba(255,255,255,.7);font-size:1.05rem;max-width:560px;margin:0 auto 28px;}
+.download-btn{display:inline-flex;align-items:center;gap:10px;background:var(--purple);color:white;padding:13px 26px;border-radius:10px;font-weight:700;text-decoration:none;transition:all .2s;}
+.download-btn:hover{opacity:.9;transform:translateY(-1px);}
+.pdf-container{max-width:960px;margin:32px auto;padding:0 24px;}
+.pdf-frame{width:100%;height:85vh;border:none;border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.12);background:white;}
+footer{background:var(--text);color:rgba(255,255,255,.6);padding:32px 24px;text-align:center;margin-top:40px;}
+.footer-links{display:flex;gap:20px;justify-content:center;margin-bottom:12px;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.85rem;}
+.footer-links a:hover{color:white;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">&#127968;</div>
+    <span class="nav-logo-text">Bairat Labs</span>
+  </a>
+  <a href="/zuppy" class="back-link">&#8592; Back to Zuppy</a>
+</nav>
+<section class="hero">
+  <h1>&#128196; Zuppy Creator Brief</h1>
+  <p>Everything you need to know about the Zuppy Creator Partner Program &mdash; commission rates, content guidelines, and how to get started.</p>
+  <a href="/zuppy/creators-brief.pdf" download class="download-btn">&#8595; Download PDF</a>
+</section>
+<div class="pdf-container">
+  <iframe class="pdf-frame" src="/zuppy/creators-brief.pdf" title="Zuppy Creator Brief">
+    <p>Your browser doesn't support inline PDFs. <a href="/zuppy/creators-brief.pdf">Download the PDF</a> instead.</p>
+  </iframe>
+</div>
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/zuppy">Zuppy</a>
+    <a href="/zuppy/privacy">Privacy Policy</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <p>&copy; 2025 Bairat Labs</p>
+</footer>
+</body>
+</html>
