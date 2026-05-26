@@ -11,17 +11,32 @@
   .back{color:#94a3b8;text-decoration:none;font-size:14px;display:flex;align-items:center;gap:6px;}
   .back:hover{color:#fff;}
   .title{color:#fff;font-size:15px;font-weight:600;}
-  .download{background:linear-gradient(135deg,#6c63ff,#4f46e5);color:#fff;padding:8px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;transition:opacity .2s;}
+  .download{background:linear-gradient(135deg,#6c63ff,#4f46e5);color:#fff;padding:8px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;transition:opacity .2s;cursor:pointer;border:none;}
   .download:hover{opacity:.85;}
   iframe{flex:1;width:100%;border:none;background:#fff;}
 </style>
 </head>
 <body>
 <div class="topbar">
-  <a class="back" href="/zuppy">← Back to Zuppy</a>
+  <a class="back" href="/zuppy">&#8592; Back to Zuppy</a>
   <span class="title">Creator Partner Brief</span>
-  <a class="download" href="/zuppy/creators-brief.pdf?v=2" download="Zuppy_Creator_Brief.pdf">&#8595; Download PDF</a>
+  <button class="download" onclick="dlPDF()">&#8595; Download PDF</button>
 </div>
-<iframe src="/zuppy/creators-brief.pdf?v=2" title="Zuppy Creator Partner Brief"></iframe>
+<iframe src="/zuppy/creators-brief.pdf?v=1779815473800" title="Zuppy Creator Partner Brief"></iframe>
+<script>
+async function dlPDF(){
+  try{
+    const r=await fetch('/zuppy/creators-brief.pdf',{cache:'no-store'});
+    const blob=await r.blob();
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='Zuppy_Creator_Brief.pdf';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }catch(e){
+    window.location='/zuppy/creators-brief.pdf?dl=1&t='+Date.now();
+  }
+}
+</script>
 </body>
 </html>
