@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowy — Calm bedtime gratitude journal for kids</title>
+  <meta name="description" content="A gentle nightly ritual for kids aged 5–11. Three little things — grateful, learned, tomorrow — and a firefly whose belly glows a little brighter each night.">
+  <style>
+    :root {
+      --bg:#EDE8DC; --bg-card:#FFFDF8; --bg-dark:#2C1F6E;
+      --purple:#2C1F6E; --purple-mid:#6B5EA8; --purple-light:#9B8EC8;
+      --gold:#F5A826; --gold-light:#FFF3DC;
+      --green:#6DB88E; --green-light:#E8F7EF;
+      --blue:#7AB5D4; --rule:#DED8CC; --muted:#8A7E6A;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--purple);}
+    nav{position:sticky;top:0;z-index:100;background:rgba(237,232,220,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-name{font-size:18px;font-weight:800;color:var(--purple);text-decoration:none;display:flex;align-items:center;gap:8px;}
+    .nav-cta{background:var(--gold);color:var(--purple);padding:9px 20px;border-radius:20px;font-weight:700;font-size:14px;text-decoration:none;}
+    .hero{text-align:center;padding:80px 24px 60px;max-width:680px;margin:0 auto;}
+    .firefly-wrap{font-size:88px;margin-bottom:28px;display:block;animation:pulse 3s ease-in-out infinite;}
+    @keyframes pulse{0%,100%{filter:drop-shadow(0 8px 20px rgba(245,168,38,.35));}50%{filter:drop-shadow(0 8px 44px rgba(245,168,38,.75));}}
+    h1{font-size:clamp(30px,6vw,50px);font-weight:800;line-height:1.15;margin-bottom:20px;}
+    h1 span{color:var(--gold);}
+    .hero p{font-size:18px;color:var(--purple-mid);line-height:1.65;margin-bottom:36px;}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--purple);padding:16px 32px;border-radius:50px;font-size:17px;font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(245,168,38,.4);transition:transform .2s,box-shadow .2s;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,168,38,.55);}
+    .hero-sub{margin-top:14px;font-size:13px;color:var(--muted);}
+    section{padding:64px 24px;}
+    .container{max-width:900px;margin:0 auto;}
+    .lbl{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+    .sec-title{font-size:clamp(24px,4vw,36px);font-weight:800;line-height:1.2;margin-bottom:16px;}
+    .sec-body{font-size:17px;color:var(--purple-mid);line-height:1.65;max-width:640px;}
+    /* THREE THINGS */
+    .dark-bg{background:var(--purple);}
+    .dark-bg .lbl{color:var(--gold);}
+    .dark-bg .sec-title{color:#fff;}
+    .dark-bg .sec-body{color:rgba(255,255,255,.65);}
+    .prompts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:36px;}
+    .pc{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:26px 22px;}
+    .pi{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;}
+    .pi.g{background:rgba(245,168,38,.22);} .pi.b{background:rgba(122,181,212,.22);} .pi.gr{background:rgba(109,184,142,.22);}
+    .pl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+    .pl.g{color:var(--gold);} .pl.b{color:var(--blue);} .pl.gr{color:var(--green);}
+    .pq{font-size:18px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:8px;}
+    .pe{font-size:13px;color:rgba(255,255,255,.45);font-style:italic;}
+    /* FEATURES */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:36px;}
+    .fc{background:var(--bg-card);border-radius:20px;padding:26px 22px;border:1px solid var(--rule);}
+    .fi{font-size:30px;margin-bottom:12px;display:block;}
+    .ft{font-size:16px;font-weight:700;color:var(--purple);margin-bottom:7px;}
+    .fb{font-size:14px;color:var(--purple-mid);line-height:1.55;}
+    /* CALENDAR */
+    .cal-wrap{background:var(--bg-card);border:1px solid var(--rule);}
+    .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;max-width:340px;margin-top:24px;}
+    .cd-lbl{text-align:center;font-size:10px;font-weight:600;color:var(--purple-light);padding-bottom:2px;}
+    .cd{width:100%;aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--purple-light);border:1.5px dashed #D5CFC5;}
+    .cd.lit{background:var(--gold);color:var(--purple);font-weight:700;border:none;box-shadow:0 2px 8px rgba(245,168,38,.4);}
+    /* PRIVACY */
+    .priv-box{background:var(--green-light);border-radius:24px;padding:48px 40px;margin-top:0;}
+    .priv-box .lbl{color:var(--green);}
+    .priv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;margin-top:28px;}
+    .pi-item{display:flex;gap:14px;}
+    .pi-dot{width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:2px;}
+    .pi-text strong{display:block;font-size:14px;color:var(--purple);margin-bottom:4px;}
+    .pi-text span{font-size:13px;color:var(--purple-mid);line-height:1.5;}
+    /* DOWNLOAD */
+    .dl-section{text-align:center;padding:80px 24px;}
+    .store-btn{display:inline-flex;align-items:center;gap:12px;background:var(--purple);color:#fff;padding:16px 28px;border-radius:16px;text-decoration:none;font-size:15px;font-weight:600;margin:8px;transition:transform .2s;}
+    .store-btn:hover{transform:translateY(-2px);}
+    .store-btn .si{font-size:22px;}
+    .store-btn small{display:block;font-size:11px;opacity:.65;font-weight:400;}
+    .coming{display:inline-flex;align-items:center;gap:12px;background:var(--rule);color:var(--muted);padding:16px 28px;border-radius:16px;font-size:15px;font-weight:600;margin:8px;}
+    footer{background:var(--purple);color:rgba(255,255,255,.6);padding:48px 24px;text-align:center;}
+    .fb2{font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;}
+    .ft2{font-size:14px;margin-bottom:24px;}
+    .flinks{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+    .flinks a{color:rgba(255,255,255,.6);text-decoration:none;font-size:14px;}
+    .flinks a:hover{color:#fff;}
+    .fcopy{font-size:13px;}
+    @media(max-width:600px){.priv-box{padding:28px 20px;} nav{padding:12px 16px;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="/glowy">🪲 Glowy</a>
+  <a class="nav-cta" href="#download">Get the App</a>
+</nav>
+
+<section style="padding:80px 24px 60px;">
+  <div class="hero">
+    <span class="firefly-wrap">🪲</span>
+    <h1>bedtime feels better when you <span>notice the good</span></h1>
+    <p>A calm nightly gratitude journal for kids aged 5–11. Three gentle prompts, a firefly who glows brighter each night, and a ritual that brings you closer — no accounts, no pressure, no cloud.</p>
+    <a href="#download" class="btn-primary">✨ Light up tonight</a>
+    <p class="hero-sub">Free to download · No accounts · iOS &amp; Android</p>
+  </div>
+</section>
+
+<section class="dark-bg">
+  <div class="container">
+    <div class="lbl">Three little things</div>
+    <h2 class="sec-title">One gentle question at a time</h2>
+    <p class="sec-body">Each evening, Glowy guides your child through three small moments of reflection. No wrong answers — just noticing what made today worth remembering.</p>
+    <div class="prompts">
+      <div class="pc">
+        <div class="pi g">🤍</div>
+        <div class="pl g">Grateful</div>
+        <div class="pq">what made you smile today?</div>
+        <div class="pe">"tap to type, or hold the mic and say it..."</div>
+      </div>
+      <div class="pc">
+        <div class="pi b">💡</div>
+        <div class="pl b">Learned</div>
+        <div class="pq">what did you figure out?</div>
+        <div class="pe">"something new, big or small..."</div>
+      </div>
+      <div class="pc">
+        <div class="pi gr">🌤</div>
+        <div class="pl gr">Tomorrow</div>
+        <div class="pq">what are you excited about tomorrow?</div>
+        <div class="pe">"one thing to look forward to..."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="lbl">Made for families</div>
+    <h2 class="sec-title">A tiny ritual. A lasting habit.</h2>
+    <div class="features">
+      <div class="fc"><span class="fi">🪲</span><div class="ft">Meet Glowy</div><div class="fb">A friendly firefly whose belly glows brighter with each answer. No streaks, no points — just warmth that grows one noticed night at a time.</div></div>
+      <div class="fc"><span class="fi">🎤</span><div class="ft">Just say it</div><div class="fb">Pre-readers can hold the mic and speak out loud. Voice-to-text uses your phone's own on-device speech — no recordings are ever kept or sent anywhere.</div></div>
+      <div class="fc"><span class="fi">📅</span><div class="ft">Glowing calendar</div><div class="fb">Every noticed night lights up golden. Empty nights are just resting — never a failure. Tap any past night to revisit what your child said.</div></div>
+      <div class="fc"><span class="fi">📄</span><div class="ft">Monthly keepsake PDF</div><div class="fb">At month's end, export a beautifully formatted PDF with every glowing night. Print it, frame it, tuck it in a drawer to treasure for years.</div></div>
+      <div class="fc"><span class="fi">👨‍👩‍👦</span><div class="ft">Multiple kids</div><div class="fb">Add several children on one device. Each child gets their own colour, their own Glowy, their own calendar — managed in the parent zone.</div></div>
+      <div class="fc"><span class="fi">🔔</span><div class="ft">Gentle bedtime reminder</div><div class="fb">Set a soft nightly notification so Glowy nudges the family when it's time for three things. Easy to toggle off anytime in the parent zone.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-card);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);">
+  <div class="container" style="display:flex;gap:48px;align-items:center;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <div class="lbl">Glowing calendar</div>
+      <h2 class="sec-title">every noticed night lives here</h2>
+      <p class="sec-body">Golden circles are nights your child paused to notice something good. Tap any one to revisit what they said. Empty nights aren't failures — they're just resting, and the habit is still there.</p>
+    </div>
+    <div style="flex:1;min-width:260px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--purple-light);text-transform:uppercase;margin-bottom:12px;">june with glowy</p>
+      <div class="cal-grid">
+        <div class="cd-lbl">s</div><div class="cd-lbl">m</div><div class="cd-lbl">t</div><div class="cd-lbl">w</div><div class="cd-lbl">t</div><div class="cd-lbl">f</div><div class="cd-lbl">s</div>
+        <div class="cd">1</div><div class="cd">2</div><div class="cd">3</div><div class="cd">4</div><div class="cd">5</div><div class="cd">6</div>
+        <div class="cd">7</div><div class="cd">8</div><div class="cd">9</div><div class="cd lit">10</div><div class="cd">11</div><div class="cd">12</div><div class="cd">13</div>
+        <div class="cd lit">14</div><div class="cd">15</div><div class="cd">16</div><div class="cd">17</div><div class="cd">18</div><div class="cd">19</div><div class="cd">20</div>
+        <div class="cd">21</div><div class="cd">22</div><div class="cd">23</div><div class="cd">24</div><div class="cd">25</div><div class="cd">26</div><div class="cd">27</div>
+        <div class="cd">28</div><div class="cd">29</div><div class="cd">30</div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:14px;">✨ 2 nights noticed so far · tap any night to revisit it</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="priv-box">
+      <div class="lbl">Private by design</div>
+      <h2 class="sec-title">We collect nothing. We mean it.</h2>
+      <p class="sec-body">Glowy is built from the ground up to be safe for children and honest for parents. Your child's words stay exactly where they belong — on your device.</p>
+      <div class="priv-grid">
+        <div class="pi-item"><div class="pi-dot">🔒</div><div class="pi-text"><strong>Stays on your device</strong><span>No account, no login, no cloud. Every entry lives only on your phone and is never uploaded.</span></div></div>
+        <div class="pi-item"><div class="pi-dot">🚫</div><div class="pi-text"><strong>No ads or tracking</strong><span>No analytics. No third-party SDKs. We built Glowy to be used, not to collect data from your family.</span></div></div>
+        <div class="pi-item"><div class="pi-dot">🎤</div><div class="pi-text"><strong>On-device voice only</strong><span>Voice-to-text uses your phone's own speech recognition — no audio is ever recorded or sent anywhere.</span></div></div>
+        <div class="pi-item"><div class="pi-dot">🔐</div><div class="pi-text"><strong>PIN-protected parent zone</strong><span>Back up data, manage children's profiles, or delete everything — all behind a parent-only PIN.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dl-section" id="download">
+  <div class="container">
+    <div class="lbl" style="text-align:center;">Download Glowy</div>
+    <h2 class="sec-title" style="text-align:center;">light up tonight</h2>
+    <p class="sec-body" style="margin:0 auto 40px;text-align:center;">Free to download. No subscriptions required. No accounts, no data, just a calm bedtime moment for you and your child.</p>
+    <div>
+      <a class="store-btn" href="#"><span class="si">🍎</span><span><small>Download on the</small>App Store</span></a>
+      <span class="coming"><span style="font-size:18px;">▶</span><span><small>Coming soon to</small>Google Play</span></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fb2">🪲 Glowy</div>
+  <p class="ft2">a calm bedtime gratitude journal for kids · by Bairat Labs, LLC</p>
+  <div class="flinks">
+    <a href="/glowy/privacy">Privacy Policy</a>
+    <a href="/glowy/delete-account">Delete Data</a>
+    <a href="mailto:bairatlabs@gmail.com">Contact</a>
+    <a href="/">Bairat Labs</a>
+  </div>
+  <p class="fcopy">&copy; 2025 Bairat Labs, LLC. All rights reserved.</p>
+</footer>
+</body>
+</html>
