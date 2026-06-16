@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Milestones — A story that grows</title>
+<meta name="description" content="Growth Milestones is an offline keepsake app for logging your child's growth and firsts. No accounts, no cloud — everything stays on your device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7F0;
+    --white:#FFFFFF;
+    --sage:#6BA368;
+    --sage-light:#7FB069;
+    --deep-green:#3E5641;
+    --coral:#F08A5D;
+    --sky:#A9D6E5;
+    --text:#2D2A26;
+    --text-2:#7A756E;
+    --hairline:#E8E0D2;
+    --muted:#A89F94;
+    --tint-green:#EAF3E4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Nunito',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand-word{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--deep-green);}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* Nav */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,247,240,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--hairline);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .nav-brand{display:flex;align-items:center;gap:10px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:var(--deep-green);}
+  .nav-brand svg{width:32px;height:40px;}
+  .nav-links{display:flex;gap:30px;font-weight:700;font-size:14px;color:var(--text-2);}
+  .nav-links a{text-decoration:none;}
+  .nav-links a:hover{color:var(--sage);}
+  @media (max-width:640px){.nav-links{display:none;}}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(180deg,#EAF3E4 0%, var(--cream) 70%);
+    padding:64px 0 56px;
+    overflow:hidden;
+  }
+  .hero .wrap{display:flex;align-items:center;gap:56px;}
+  .hero-copy{flex:1;min-width:280px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--white);border:1px solid var(--hairline);
+    border-radius:100px;padding:7px 16px;
+    font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--sage);
+    margin-bottom:22px;
+  }
+  .hero h1{font-size:42px;line-height:1.15;margin-bottom:18px;}
+  .hero p.lead{font-size:17px;color:var(--text-2);max-width:460px;margin-bottom:30px;}
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;
+    padding:15px 28px;border-radius:100px;text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{
+    background:var(--sage);color:#fff;
+    box-shadow:0 12px 24px -10px rgba(107,163,104,0.7);
+  }
+  .btn-ghost{
+    background:#fff;color:var(--deep-green);
+    border:1.5px solid var(--hairline);
+  }
+  .hero-pip{flex:0 0 auto;width:280px;display:flex;justify-content:center;}
+  .hero-pip svg{width:220px;height:auto;}
+  @media (max-width:860px){
+    .hero .wrap{flex-direction:column-reverse;text-align:center;}
+    .hero p.lead{margin-left:auto;margin-right:auto;}
+    .btn-row{justify-content:center;}
+    .hero h1{font-size:34px;}
+  }
+
+  /* Pills row under hero */
+  .chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;}
+  .chip{
+    background:#fff;border:1px solid var(--hairline);border-radius:100px;
+    padding:7px 14px;font-size:13px;font-weight:700;color:var(--text-2);
+  }
+  @media (max-width:860px){.chip-row{justify-content:center;}}
+
+  /* Section heading */
+  .section{padding:72px 0;}
+  .section-head{max-width:560px;margin:0 auto 44px;text-align:center;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:30px;margin-bottom:12px;}
+  .section-head p{color:var(--text-2);font-size:16px;}
+
+  /* Features grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:860px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.grid{grid-template-columns:1fr;}}
+  .card{
+    background:#fff;border-radius:20px;padding:26px 22px;
+    box-shadow:0 8px 22px -18px rgba(62,86,65,0.6);
+  }
+  .card .icon-tile{
+    width:42px;height:42px;border-radius:13px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:21px;margin-bottom:16px;
+  }
+  .card h3{font-size:17px;margin-bottom:8px;}
+  .card p{font-size:14px;color:var(--text-2);}
+  .tile-height{background:#E4F0F7;}
+  .tile-weight{background:#FBEBDF;}
+  .tile-word{background:#F1EAF6;}
+  .tile-step{background:#FBF1D6;}
+  .tile-school{background:#EAF3E4;}
+  .tile-custom{background:#F0ECE5;}
+
+  /* Timeline preview */
+  .timeline-section .wrap{display:flex;align-items:center;gap:56px;}
+  .timeline-copy{flex:1;min-width:280px;}
+  .timeline-copy h2{font-size:28px;margin-bottom:14px;}
+  .timeline-copy p{color:var(--text-2);margin-bottom:18px;}
+  .feature-list{list-style:none;}
+  .feature-list li{display:flex;gap:10px;margin-bottom:12px;font-size:15px;}
+  .feature-list li::before{content:"✓";color:var(--sage);font-weight:800;}
+  .timeline-card{
+    flex:0 0 320px;background:#fff;border-radius:22px;padding:20px;
+    box-shadow:0 10px 26px -20px rgba(62,86,65,0.7);
+  }
+  .t-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--hairline);}
+  .t-row:last-child{border-bottom:none;}
+  .t-dot{width:34px;height:34px;border-radius:11px;flex:0 0 34px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .t-title{font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;color:var(--text);}
+  .t-meta{font-size:11px;font-weight:700;color:var(--text-2);margin-top:2px;}
+  @media (max-width:860px){
+    .timeline-section .wrap{flex-direction:column;}
+    .timeline-card{flex:0 0 auto;width:100%;max-width:340px;}
+  }
+
+  /* Privacy */
+  .privacy-box{
+    background:var(--tint-green);border-radius:24px;padding:48px 40px;
+    text-align:center;
+  }
+  .privacy-box h2{font-size:28px;margin-bottom:14px;}
+  .privacy-box p{color:var(--deep-green);max-width:560px;margin:0 auto 22px;font-size:16px;}
+  .privacy-points{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:24px;}
+  .privacy-point{font-size:13px;font-weight:800;color:var(--deep-green);display:flex;align-items:center;gap:8px;}
+
+  /* Download CTA */
+  .cta{
+    background:linear-gradient(135deg,var(--sage) 0%, #5C9159 100%);
+    border-radius:28px;padding:56px 40px;text-align:center;color:#fff;
+  }
+  .cta h2{color:#fff;font-size:30px;margin-bottom:12px;}
+  .cta p{color:rgba(255,255,255,0.9);max-width:480px;margin:0 auto 28px;}
+  .store-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .store-btn{
+    display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--deep-green);
+    border-radius:14px;padding:13px 22px;font-family:'Quicksand',sans-serif;font-weight:700;
+    text-decoration:none;font-size:15px;
+  }
+  .store-btn.disabled{opacity:0.6;cursor:default;}
+  .store-btn .sub{display:block;font-size:11px;font-weight:600;color:var(--text-2);}
+
+  footer{padding:40px 0;border-top:1px solid var(--hairline);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:24px;font-size:13px;font-weight:700;color:var(--text-2);}
+  .footer-links a{text-decoration:none;}
+  .footer-links a:hover{color:var(--sage);}
+  .footer-brand{font-size:13px;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-brand">
+      <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+        <path d="M60 40 C60 40 50 25 38 28 C38 28 42 42 60 40Z" fill="#7FB069"/>
+        <path d="M60 40 C60 40 70 25 82 28 C82 28 78 42 60 40Z" fill="#6BA368"/>
+        <line x1="60" y1="40" x2="60" y2="58" stroke="#6BA368" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="60" cy="94" rx="34" ry="40" fill="#E8D5B7"/>
+        <ellipse cx="51" cy="88" rx="21" ry="27" fill="#F1E4CC" opacity="0.65"/>
+        <circle cx="42" cy="93" r="6" fill="#F08A5D" opacity="0.28"/>
+        <circle cx="78" cy="93" r="6" fill="#F08A5D" opacity="0.28"/>
+        <ellipse cx="51" cy="90" rx="4.6" ry="6" fill="#3E5641"/>
+        <ellipse cx="69" cy="90" rx="4.6" ry="6" fill="#3E5641"/>
+        <path d="M52 102 Q60 109 68 102" stroke="#3E5641" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      Growth Milestones
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="/growth-milestones/privacy">Policy</a>
+      <a href="/growth-milestones/delete-account">Delete data</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">🌱 Meet Pip, the sprout</span>
+      <h1>A story that grows<br>alongside your child.</h1>
+      <p class="lead">Growth Milestones is a tender, offline keepsake for logging your child's firsts — height, weight, first words, first steps, and everything in between. No accounts, no cloud, just memories you keep.</p>
+      <div class="btn-row">
+        <a href="#download" class="btn btn-primary">Get the app</a>
+        <a href="#privacy" class="btn btn-ghost">How privacy works</a>
+      </div>
+      <div class="chip-row">
+        <span class="chip">100% offline</span>
+        <span class="chip">No accounts</span>
+        <span class="chip">Printable memory book</span>
+      </div>
+    </div>
+    <div class="hero-pip">
+      <svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="110" cy="230" rx="90" ry="16" fill="#3E5641" opacity="0.06"/>
+        <path d="M110 70 C110 70 96 48 78 52 C78 52 84 72 110 70Z" fill="#7FB069"/>
+        <path d="M110 70 C110 70 124 48 142 52 C142 52 136 72 110 70Z" fill="#6BA368"/>
+        <line x1="110" y1="70" x2="110" y2="98" stroke="#6BA368" stroke-width="7" stroke-linecap="round"/>
+        <path d="M58 160 C44 150 40 168 50 176 C60 184 70 168 58 160Z" fill="#7FB069"/>
+        <path d="M64 178 Q40 168 28 184" stroke="#7FB069" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <g transform="rotate(18 150 165)">
+          <path d="M150 165 Q190 150 196 130" stroke="#7FB069" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </g>
+        <ellipse cx="110" cy="172" rx="62" ry="72" fill="#E8D5B7"/>
+        <ellipse cx="94" cy="160" rx="38" ry="48" fill="#F1E4CC" opacity="0.65"/>
+        <circle cx="78" cy="168" r="11" fill="#F08A5D" opacity="0.28"/>
+        <circle cx="142" cy="168" r="11" fill="#F08A5D" opacity="0.28"/>
+        <ellipse cx="94" cy="162" rx="8.4" ry="11" fill="#3E5641"/>
+        <ellipse cx="126" cy="162" rx="8.4" ry="11" fill="#3E5641"/>
+        <circle cx="91" cy="158" r="1.8" fill="#fff"/>
+        <circle cx="123" cy="158" r="1.8" fill="#fff"/>
+        <path d="M88 184 Q110 198 132 184" stroke="#3E5641" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <line x1="86" y1="244" x2="82" y2="232" stroke="#C9A66B" stroke-width="4" stroke-linecap="round"/>
+        <line x1="110" y1="246" x2="110" y2="232" stroke="#C9A66B" stroke-width="4" stroke-linecap="round"/>
+        <line x1="134" y1="244" x2="138" y2="232" stroke="#C9A66B" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">FEATURES</span>
+      <h2>Everything a baby book should be</h2>
+      <p>Simple, warm tools for capturing the moments that matter — built to last as long as the memories do.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon-tile tile-height">📏</div>
+        <h3>Height &amp; weight tracking</h3>
+        <p>Log measurements over time and watch a smooth growth chart take shape, in cm/in or kg/lb.</p>
+      </div>
+      <div class="card">
+        <div class="icon-tile tile-word">💬</div>
+        <h3>Firsts, captured</h3>
+        <p>First words, first steps, first day of school — or create a custom milestone for anything in between.</p>
+      </div>
+      <div class="card">
+        <div class="icon-tile tile-school">🖼️</div>
+        <h3>Photos &amp; notes</h3>
+        <p>Attach a photo and a note to any memory. Everything is stored privately, right on your device.</p>
+      </div>
+      <div class="card">
+        <div class="icon-tile tile-step">📈</div>
+        <h3>Growth charts</h3>
+        <p>Watch height and weight trends over time with gentle, tappable charts and at-a-glance stats.</p>
+      </div>
+      <div class="card">
+        <div class="icon-tile tile-weight">📖</div>
+        <h3>Printable memory book</h3>
+        <p>Export a beautifully laid out PDF keepsake book — a cover, timeline pages, growth charts, and more.</p>
+      </div>
+      <div class="card">
+        <div class="icon-tile tile-custom">👨‍👩‍👧</div>
+        <h3>Multiple children</h3>
+        <p>Keep a separate story for each child in your family, and switch between them in a tap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section timeline-section">
+  <div class="wrap">
+    <div class="timeline-copy">
+      <span class="eyebrow">THE TIMELINE</span>
+      <h2>A keepsake feed of every first</h2>
+      <p>Your child's story, told in order — from the day they were born to the milestone you logged this morning.</p>
+      <ul class="feature-list">
+        <li>Reverse-chronological timeline grouped by year</li>
+        <li>Inline values and deltas, like "+3 cm" since last entry</li>
+        <li>Tap any memory to see the full photo and note</li>
+      </ul>
+    </div>
+    <div class="timeline-card">
+      <div class="t-row">
+        <div class="t-dot tile-school">🎒</div>
+        <div>
+          <div class="t-title">First day of nursery</div>
+          <div class="t-meta">Jun 2, 2025 · 2y 2m</div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-dot tile-word">💬</div>
+        <div>
+          <div class="t-title">First word: "mama"</div>
+          <div class="t-meta">Apr 18, 2025 · 2y 1m</div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-dot tile-height">📏</div>
+        <div>
+          <div class="t-title">Height — 88 cm</div>
+          <div class="t-meta">Apr 1, 2025 · 2y 0m</div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-dot tile-step">👟</div>
+        <div>
+          <div class="t-title">First steps</div>
+          <div class="t-meta">Nov 9, 2024 · 1y 7m</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="privacy-box">
+      <h2>Built to keep your child's story private</h2>
+      <p>Growth Milestones has no servers, no accounts, and no analytics. Every photo, measurement, and note you add lives only on your device — never on ours.</p>
+      <a href="/growth-milestones/privacy" class="btn btn-primary">Read the privacy policy</a>
+      <div class="privacy-points">
+        <span class="privacy-point">🔒 Nothing leaves your device</span>
+        <span class="privacy-point">🚫 No tracking or ads</span>
+        <span class="privacy-point">👤 No account required</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="download">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Start the story today</h2>
+      <p>Growth Milestones is coming soon to iOS and Android. Be one of the first to keep your child's firsts, beautifully.</p>
+      <div class="store-row">
+        <span class="store-btn disabled">🍎 <span>App Store<span class="sub">Coming soon</span></span></span>
+        <span class="store-btn disabled">▶️ <span>Google Play<span class="sub">Coming soon</span></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">© 2026 Bairat Labs, LLC. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="/growth-milestones/privacy">Privacy Policy</a>
+      <a href="/growth-milestones/delete-account">Delete My Data</a>
+      <a href="mailto:bairatlabs@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

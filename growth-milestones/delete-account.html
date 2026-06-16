@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete My Data — Growth Milestones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7F0; --white:#FFFFFF; --sage:#6BA368; --deep-green:#3E5641;
+    --coral:#F08A5D; --text:#2D2A26; --text-2:#7A756E; --hairline:#E8E0D2; --muted:#A89F94;
+    --tint-green:#EAF3E4; --tint-coral:#FBEBDF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+  h1,h2,.brand{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--deep-green);}
+  a{color:var(--sage);text-decoration:underline;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+  nav{position:sticky;top:0;background:rgba(251,247,240,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline);}
+  nav .inner{max-width:720px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;gap:10px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:var(--deep-green);}
+  nav .inner svg{width:26px;height:32px;}
+  nav .back{margin-left:auto;font-size:13px;font-weight:700;color:var(--text-2);text-decoration:none;}
+  header.page{padding:48px 0 8px;}
+  header.page .eyebrow{display:inline-block;background:var(--tint-coral);color:#D9824F;font-weight:800;font-size:12px;letter-spacing:0.07em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
+  header.page h1{font-size:32px;margin-bottom:10px;}
+  header.page p.lead{color:var(--text-2);font-size:16px;max-width:560px;}
+  main{padding:24px 0 72px;}
+  .option-card{
+    background:#fff;border-radius:20px;padding:26px 26px;margin-bottom:22px;
+    box-shadow:0 8px 22px -18px rgba(62,86,65,0.6);
+  }
+  .option-card .step-tag{
+    display:inline-block;background:var(--tint-green);color:var(--sage);
+    font-weight:800;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
+    padding:5px 12px;border-radius:100px;margin-bottom:12px;
+  }
+  .option-card h2{font-size:19px;margin-bottom:10px;}
+  .option-card ol, .option-card ul{padding-left:22px;margin:10px 0;}
+  .option-card li{margin-bottom:8px;font-size:15px;}
+  .option-card p{font-size:15px;margin-bottom:8px;}
+  .note{
+    background:var(--tint-green);border-radius:16px;padding:16px 18px;font-size:14.5px;color:var(--deep-green);margin-top:8px;
+  }
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--hairline);vertical-align:top;}
+  th{color:var(--text-2);font-weight:800;text-transform:uppercase;font-size:11px;letter-spacing:0.05em;}
+  .contact-box{
+    background:var(--deep-green);color:#fff;border-radius:20px;padding:30px 26px;text-align:center;margin-top:36px;
+  }
+  .contact-box h2{color:#fff;font-size:20px;margin-bottom:10px;}
+  .contact-box p{color:rgba(255,255,255,0.85);font-size:14.5px;margin-bottom:18px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;
+    padding:13px 24px;border-radius:100px;text-decoration:none;
+  }
+  footer{border-top:1px solid var(--hairline);padding:32px 0;text-align:center;color:var(--muted);font-size:13px;}
+  footer a{color:var(--text-2);text-decoration:none;margin:0 10px;font-weight:700;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 40 C60 40 50 25 38 28 C38 28 42 42 60 40Z" fill="#7FB069"/>
+      <path d="M60 40 C60 40 70 25 82 28 C82 28 78 42 60 40Z" fill="#6BA368"/>
+      <line x1="60" y1="40" x2="60" y2="58" stroke="#6BA368" stroke-width="5" stroke-linecap="round"/>
+      <ellipse cx="60" cy="94" rx="34" ry="40" fill="#E8D5B7"/>
+      <ellipse cx="51" cy="90" rx="4.6" ry="6" fill="#3E5641"/>
+      <ellipse cx="69" cy="90" rx="4.6" ry="6" fill="#3E5641"/>
+      <path d="M52 102 Q60 109 68 102" stroke="#3E5641" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+    Growth Milestones
+    <a class="back" href="/growth-milestones">← Back to app</a>
+  </div>
+</nav>
+
+<header class="page">
+  <div class="wrap">
+    <span class="eyebrow">DELETE MY DATA</span>
+    <h1>Deleting your data</h1>
+    <p class="lead">Growth Milestones stores everything locally on your device — there is no Bairat Labs account or server copy to delete. Here is exactly how to remove your data, depending on what you want to clear.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="option-card">
+      <span class="step-tag">Option 1</span>
+      <h2>Delete a single child or memory, in-app</h2>
+      <ol>
+        <li>Open Growth Milestones and go to that child's <strong>Timeline</strong> or <strong>Settings → Children</strong>.</li>
+        <li>To remove one memory: open it and tap <strong>Delete</strong> at the bottom of the milestone detail screen.</li>
+        <li>To remove a child's entire profile (including their milestones and photos): go to <strong>Edit profile</strong> for that child and tap <strong>Remove child</strong>, then confirm.</li>
+      </ol>
+      <div class="note">This permanently deletes the selected memory or child profile, including any attached photos, from your device. This action cannot be undone, so consider exporting a backup first if you might want the data later.</div>
+    </div>
+
+    <div class="option-card">
+      <span class="step-tag">Option 2</span>
+      <h2>Clear all app data, in-app</h2>
+      <ol>
+        <li>Open <strong>Settings</strong> within Growth Milestones.</li>
+        <li>Look under <strong>Back up &amp; export data</strong> for a "Clear all data" or "Reset app" option.</li>
+        <li>Confirm the reset. This removes every child, milestone, note, and photo stored by the app.</li>
+      </ol>
+      <p>If you'd like to keep a copy first, use the same screen to export a JSON backup or generate a memory book PDF before clearing your data.</p>
+    </div>
+
+    <div class="option-card">
+      <span class="step-tag">Option 3</span>
+      <h2>Uninstall the app</h2>
+      <p>Because Growth Milestones keeps all of its data in local app storage on your device, uninstalling the app removes everything it stored, including:</p>
+      <ul>
+        <li>All children's profiles and milestone entries</li>
+        <li>All photos attached within the app</li>
+        <li>Any local backups saved inside the app's own storage area</li>
+      </ul>
+      <table>
+        <tr><th>Platform</th><th>How to uninstall</th></tr>
+        <tr><td>iOS</td><td>Touch and hold the Growth Milestones icon on your Home Screen, then tap "Remove App" → "Delete App."</td></tr>
+        <tr><td>Android</td><td>Touch and hold the Growth Milestones icon, then tap "Uninstall" (or go to Settings → Apps → Growth Milestones → Uninstall).</td></tr>
+      </table>
+      <div class="note">If you exported a JSON backup or PDF memory book to your device's Files app, Photos, or Downloads, those exported files are separate from the app and will not be removed when you uninstall — delete them separately if you want them gone too.</div>
+    </div>
+
+    <div class="option-card">
+      <span class="step-tag">About subscriptions</span>
+      <h2>Cancelling an optional premium purchase</h2>
+      <p>If you've purchased an optional premium unlock, that subscription or one-time purchase is managed by the App Store or Google Play, not by Bairat Labs. Deleting app data or uninstalling the app does not cancel a subscription.</p>
+      <ul>
+        <li><strong>iOS:</strong> Settings → [your name] → Subscriptions → Growth Milestones → Cancel Subscription.</li>
+        <li><strong>Android:</strong> Google Play app → Menu → Subscriptions → Growth Milestones → Cancel.</li>
+      </ul>
+    </div>
+
+    <div class="contact-box">
+      <h2>Still need help?</h2>
+      <p>Since Bairat Labs has no access to your on-device data, we cannot delete it remotely on your behalf — but we're happy to help if you run into trouble with any of the steps above.</p>
+      <a class="btn" href="mailto:bairatlabs@gmail.com?subject=Growth%20Milestones%20-%20Data%20deletion%20help">Email bairatlabs@gmail.com</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <a href="/growth-milestones">App home</a>
+  <a href="/growth-milestones/privacy">Privacy Policy</a>
+  <a href="https://www.reddit.com/user/bairatlabs" target="_blank" rel="noopener">u/bairatlabs</a>
+  <div style="margin-top:14px;">© 2026 Bairat Labs, LLC</div>
+</footer>
+
+</body>
+</html>
