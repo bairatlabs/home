@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnePage — Privacy Policy</title>
+<meta name="description" content="Privacy policy for OnePage, the co-parenting app by Bairat Labs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent:   #2C6E5D;
+  --accent-dk:#1f5244;
+  --accent-soft:#DCEAE4;
+  --bg:       #F1ECE1;
+  --surface:  #FBF9F4;
+  --surface2: #F3EFE6;
+  --border:   #E0D8C8;
+  --border2:  #D3CBBA;
+  --text:     #23282A;
+  --text2:    #5C6360;
+  --text3:    #8A8F8A;
+  --warn:     #B4894A;
+  --warn-soft:#F0E6D2;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Hanken Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* NAV */
+nav{
+  background:rgba(241,236,225,0.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding:0 28px;height:64px;
+  display:flex;align-items:center;gap:14px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  font-weight:800;font-size:17px;letter-spacing:-.02em;color:var(--text);
+}
+.nav-logo-icon{
+  width:34px;height:34px;border-radius:9px;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+}
+nav a.back{
+  margin-left:auto;font-size:13px;font-weight:600;color:var(--text2);
+}
+
+/* CONTENT */
+.page-wrap{max-width:720px;margin:0 auto;padding:56px 28px 80px;}
+.page-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;
+}
+.page-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.025em;margin-bottom:10px;}
+.page-meta{font-size:14px;color:var(--text3);margin-bottom:48px;}
+.page-meta span{margin:0 6px;}
+
+/* Intro box */
+.intro-box{
+  background:var(--accent-soft);border:1px solid var(--border);
+  border-radius:16px;padding:22px 22px;margin-bottom:48px;
+  font-size:15px;line-height:1.7;color:var(--text);
+}
+.intro-box strong{color:var(--accent);}
+
+/* Sections */
+.policy-section{margin-bottom:42px;}
+.policy-section h2{
+  font-size:17px;font-weight:800;letter-spacing:-.01em;
+  margin-bottom:14px;padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.policy-section p{font-size:15px;line-height:1.75;color:var(--text2);margin-bottom:14px;}
+.policy-section p:last-child{margin-bottom:0;}
+.policy-section ul{
+  list-style:none;margin:8px 0 14px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.policy-section ul li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:15px;line-height:1.6;color:var(--text2);
+}
+.policy-section ul li::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--accent);flex-shrink:0;margin-top:8px;
+}
+
+/* Table */
+table{
+  width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;
+}
+th{
+  text-align:left;padding:10px 14px;background:var(--surface2);
+  border:1px solid var(--border2);font-weight:700;color:var(--text);
+}
+td{padding:10px 14px;border:1px solid var(--border2);color:var(--text2);vertical-align:top;line-height:1.5;}
+tr:first-child td{border-top:none;}
+
+/* AI callout */
+.ai-callout{
+  background:var(--warn-soft);border:1px solid rgba(180,137,74,.3);
+  border-radius:14px;padding:18px 20px;margin:16px 0;
+}
+.ai-callout-head{
+  display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--warn);
+  margin-bottom:8px;
+}
+.ai-callout p{font-size:14px;line-height:1.65;color:var(--text2);margin:0;}
+
+/* Contact card */
+.contact-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:22px;margin-top:24px;
+}
+.contact-card p{font-size:15px;line-height:1.7;color:var(--text2);margin-bottom:10px;}
+.contact-card p:last-child{margin-bottom:0;}
+.contact-card a{color:var(--accent);font-weight:600;}
+
+/* Footer */
+footer{
+  border-top:1px solid var(--border);background:var(--surface);
+  padding:28px;text-align:center;font-size:13px;color:var(--text3);
+}
+footer a{color:var(--text2);font-weight:600;}
+footer a:hover{color:var(--accent);}
+footer span{margin:0 8px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/onepage">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 64 64" width="19" height="19" fill="none">
+        <path d="M14 10 h22 l16 16 v27 a4 4 0 0 1 -4 4 H14 a4 4 0 0 1 -4 -4 V14 a4 4 0 0 1 4 -4 z" fill="#fff"/>
+        <path d="M36 10 v12 a4 4 0 0 0 4 4 h12 z" fill="#fff" opacity=".62"/>
+      </svg>
+    </div>
+    OnePage
+  </a>
+  <a class="back" href="/onepage">← Back to OnePage</a>
+</nav>
+
+<div class="page-wrap">
+  <div class="page-eyebrow">Legal</div>
+  <h1 class="page-title">Privacy Policy</h1>
+  <p class="page-meta">Bairat Labs, LLC<span>·</span>Effective July 5, 2026<span>·</span>App: OnePage</p>
+
+  <div class="intro-box">
+    <strong>The short version:</strong> OnePage is a co-parenting coordination tool. To work, it needs to store your schedule, messages, and expenses in the cloud so both parents see the same information. We store only what the app needs, we don't sell your data, we don't show you ads, and we don't share your information with anyone except the services listed in this policy that help us run the app.
+  </div>
+
+  <!-- 1. Who we are -->
+  <div class="policy-section">
+    <h2>1. Who we are</h2>
+    <p>OnePage is made by Bairat Labs, LLC, a software company based in the United States. If you have questions about this policy, you can reach us at <a href="mailto:bairatlabs@gmail.com">bairatlabs@gmail.com</a>.</p>
+  </div>
+
+  <!-- 2. What we collect and why -->
+  <div class="policy-section">
+    <h2>2. What we collect and why</h2>
+    <p>OnePage collects only the information it needs to provide the service. Here is what each category covers and why it's needed:</p>
+
+    <table>
+      <tr>
+        <th>Category</th>
+        <th>What it includes</th>
+        <th>Why it's needed</th>
+      </tr>
+      <tr>
+        <td><strong>Account</strong></td>
+        <td>Email address, display name, profile photo (optional), authentication tokens</td>
+        <td>To identify your account and let you sign in</td>
+      </tr>
+      <tr>
+        <td><strong>Custody schedule</strong></td>
+        <td>Rotation pattern, individual day overrides, handoff times and locations</td>
+        <td>To show both parents the same calendar view</td>
+      </tr>
+      <tr>
+        <td><strong>Messages</strong></td>
+        <td>Text of messages sent between co-parents, timestamps, read receipts</td>
+        <td>To deliver messages and maintain the permanent, uneditable record</td>
+      </tr>
+      <tr>
+        <td><strong>Expenses</strong></td>
+        <td>Description, amount, date, payee, split ratio, approval status, optional receipt photo</td>
+        <td>To track the shared expense ledger and show the running balance</td>
+      </tr>
+      <tr>
+        <td><strong>Info library</strong></td>
+        <td>Child profiles: name, birthday, doctor, allergies, school, emergency contacts, pickup authorization, other notes</td>
+        <td>To give both parents access to essential child information</td>
+      </tr>
+      <tr>
+        <td><strong>Photos and videos</strong></td>
+        <td>Files you upload to the shared album</td>
+        <td>To power the shared family media library</td>
+      </tr>
+      <tr>
+        <td><strong>Subscription</strong></td>
+        <td>Purchase token, subscription status, store ID (App Store or Google Play)</td>
+        <td>To validate your OnePage Plus subscription and unlock Plus features</td>
+      </tr>
+    </table>
+    <p>We do not collect device identifiers for advertising, browsing history, location data, or any information beyond what is listed above.</p>
+  </div>
+
+  <!-- 3. How we store your data -->
+  <div class="policy-section">
+    <h2>3. How we store your data</h2>
+    <p>OnePage stores data using Google Firebase, a cloud platform operated by Google LLC. Firebase services we use include:</p>
+    <ul>
+      <li><strong>Firebase Authentication</strong> — manages your account and sign-in. Supports email/password, Sign in with Apple, and Sign in with Google.</li>
+      <li><strong>Cloud Firestore</strong> — stores structured data: your schedule, messages, expenses, and info-library entries.</li>
+      <li><strong>Firebase Storage</strong> — stores files you upload: photos, videos, and receipt images.</li>
+    </ul>
+    <p>Firebase data is stored in Google-operated data centers. Data is encrypted in transit and at rest. Firebase's own privacy practices are governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+    <p>Access to your family's data is restricted to the accounts that belong to your co-parenting group. Other OnePage users cannot see your information.</p>
+  </div>
+
+  <!-- 4. Sign-in methods -->
+  <div class="policy-section">
+    <h2>4. Sign-in methods</h2>
+    <p>You can create a OnePage account using:</p>
+    <ul>
+      <li><strong>Email and password</strong> — stored and managed by Firebase Authentication.</li>
+      <li><strong>Sign in with Apple</strong> — we receive a unique Apple ID token. Apple may provide a relay email address; we store only the token and name Apple provides. Apple's privacy practices are governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
+      <li><strong>Sign in with Google</strong> — we receive a Google ID token and your public Google profile name and photo (if provided). Google's privacy practices are governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+    </ul>
+    <p>We do not receive your Apple or Google password. Authentication is handled entirely by Apple and Google respectively, using OAuth 2.0.</p>
+  </div>
+
+  <!-- 5. AI Tone Check -->
+  <div class="policy-section">
+    <h2>5. AI tone check (OnePage Plus)</h2>
+    <p>OnePage Plus subscribers can use the optional AI tone check feature before sending a message. When you tap "Check tone," the current text of your draft is sent to our Cloudflare Worker proxy, which forwards it to Anthropic's Claude API to analyze the tone and suggest a calmer rewrite if appropriate.</p>
+    <div class="ai-callout">
+      <div class="ai-callout-head">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+        Important: what happens to your message draft
+      </div>
+      <p>Your draft text is transmitted to Anthropic's API solely to generate the tone-check result. <strong>It is not logged by OnePage, not stored in your account, and not used to train AI models.</strong> The draft is discarded after the API call completes. The message you actually send (after any edits) is stored normally in Firestore as described in Section 3.</p>
+    </div>
+    <p>The tone-check feature is entirely optional and runs only when you explicitly tap the "Check tone" button. Nothing is sent to the AI without your action. Anthropic's data practices for API calls are governed by <a href="https://www.anthropic.ic/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>.</p>
+    <p>The Cloudflare Worker proxy handles routing and authentication for the AI request. Cloudflare's data practices are governed by <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a>.</p>
+  </div>
+
+  <!-- 6. Subscriptions (RevenueCat) -->
+  <div class="policy-section">
+    <h2>6. Subscriptions</h2>
+    <p>OnePage Plus subscriptions are managed through RevenueCat, a subscription management platform. When you subscribe, RevenueCat receives your purchase token from the App Store or Google Play and validates your subscription status.</p>
+    <p>RevenueCat stores your subscription state (active, expired, or cancelled) and associates it with your account. RevenueCat does not receive your payment card details — those are handled entirely by Apple or Google. RevenueCat's privacy practices are governed by the <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat Privacy Policy</a>.</p>
+  </div>
+
+  <!-- 7. How we share data -->
+  <div class="policy-section">
+    <h2>7. How we share your data</h2>
+    <p>We share your data only as described in this policy:</p>
+    <ul>
+      <li><strong>With your co-parent</strong> — data you put in OnePage (schedule, messages, expenses, info library, shared photos) is shared with the other accounts in your co-parenting group by design. That is the core function of the app.</li>
+      <li><strong>With Firebase / Google</strong> — to store and sync your data (see Section 3).</li>
+      <li><strong>With Anthropic (tone check only)</strong> — your message draft text is sent only when you invoke the tone-check feature (see Section 5).</li>
+      <li><strong>With RevenueCat</strong> — subscription status for OnePage Plus (see Section 6).</li>
+      <li><strong>With Cloudflare</strong> — as the routing proxy for the tone-check API call (see Section 5).</li>
+    </ul>
+    <p>We do not sell your personal information. We do not share it with advertisers. We do not use your data or your children's data for any purpose other than operating the app.</p>
+  </div>
+
+  <!-- 8. Children's information -->
+  <div class="policy-section">
+    <h2>8. Children's information</h2>
+    <p>OnePage is designed for use by parents and guardians, not by children. Users of the app must be 13 or older (or the age of digital consent in their country). We do not knowingly allow accounts to be created by minors.</p>
+    <p>The app's info-library feature allows parents to store information <em>about</em> their children (medical records, school contacts, allergies, etc.). This data is stored in Firestore as described in Section 3, is visible only to the co-parenting group, and is used solely to help parents coordinate their children's care. We do not share children's information with third parties for advertising or any other purpose.</p>
+    <p>If you believe a minor has created an account or that children's data has been submitted in error, please contact us at <a href="mailto:bairatlabs@gmail.com">bairatlabs@gmail.com</a> and we will delete it promptly.</p>
+  </div>
+
+  <!-- 9. Your rights -->
+  <div class="policy-section">
+    <h2>9. Your rights and choices</h2>
+    <p>You can exercise the following rights at any time:</p>
+    <ul>
+      <li><strong>Access</strong> — your data is visible within the app at all times.</li>
+      <li><strong>Correction</strong> — you can edit your info-library entries, schedule, and profile from within the app.</li>
+      <li><strong>Deletion</strong> — you can delete your account and all associated data from Settings → Account → Delete Account. Data is purged from Firestore and Firebase Storage within 30 days of the request. See our <a href="/onepage/delete-account">Delete My Data</a> page for full instructions.</li>
+      <li><strong>Export</strong> — OnePage Plus subscribers can export a PDF summary of their data at any time using the Export feature in the app.</li>
+      <li><strong>Opt out of tone check</strong> — simply don't tap "Check tone." The feature is never invoked automatically.</li>
+    </ul>
+    <p>If you are located in the European Economic Area, the UK, or another jurisdiction with additional privacy rights (such as GDPR or CCPA), you may contact us to exercise those rights. We will respond within 30 days.</p>
+  </div>
+
+  <!-- 10. Data retention -->
+  <div class="policy-section">
+    <h2>10. Data retention</h2>
+    <p>We retain your data for as long as your account is active. If you delete your account, your data is removed from Firestore and Firebase Storage within 30 days. Firebase Authentication credentials are deleted within 7 days of the account-deletion request.</p>
+    <p>Subscription records held by RevenueCat may be retained for up to 7 years as required by financial record-keeping obligations; this is limited to the purchase token and subscription status and contains no personally identifiable payment information.</p>
+  </div>
+
+  <!-- 11. Security -->
+  <div class="policy-section">
+    <h2>11. Security</h2>
+    <p>All data transmitted between the app and our backend is encrypted in transit using TLS. Data stored in Firestore and Firebase Storage is encrypted at rest by Google. Access to your family's data is enforced by Firebase Security Rules, which restrict read and write access to authenticated members of your co-parenting group.</p>
+    <p>No system is perfectly secure. If you believe you have found a security vulnerability in OnePage, please report it to <a href="mailto:bairatlabs@gmail.com">bairatlabs@gmail.com</a>.</p>
+  </div>
+
+  <!-- 12. Analytics -->
+  <div class="policy-section">
+    <h2>12. Analytics and advertising</h2>
+    <p>OnePage does not include third-party advertising SDKs. We do not display ads.</p>
+    <p>We may use Firebase Analytics (which is part of Google Firebase) to collect aggregate, anonymized usage statistics — for example, how often certain features are used. This data is used only to improve the app and is not linked to your account or shared with advertisers. You can opt out of Firebase Analytics data collection in Settings on your device.</p>
+  </div>
+
+  <!-- 13. Changes -->
+  <div class="policy-section">
+    <h2>13. Changes to this policy</h2>
+    <p>We may update this Privacy Policy from time to time. If we make material changes, we will notify you within the app and update the "Effective" date at the top of this page. Continued use of OnePage after the effective date constitutes acceptance of the revised policy.</p>
+  </div>
+
+  <!-- 14. Contact -->
+  <div class="policy-section">
+    <h2>14. Contact us</h2>
+    <p>Questions about this policy or your data? We're a small team and we read every message.</p>
+    <div class="contact-card">
+      <p><strong>Bairat Labs, LLC</strong></p>
+      <p>Email: <a href="mailto:bairatlabs@gmail.com">bairatlabs@gmail.com</a></p>
+      <p>Please include "OnePage Privacy" in your subject line for the fastest response.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="/onepage">OnePage</a><span>·</span>
+  <a href="/onepage/delete-account">Delete My Data</a><span>·</span>
+  <a href="mailto:bairatlabs@gmail.com">Contact</a><span>·</span>
+  <a href="/">Bairat Labs</a>
+  <br><br>
+  &copy; 2026 Bairat Labs, LLC
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnePage — Hassle-free co-parenting</title>
+<meta name="description" content="The custody schedule, messages, shared expenses, and family records that used to live in five apps — in one calm, neutral place. Free for iOS and Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent:   #2C6E5D;
+  --accent-dk:#1f5244;
+  --accent-soft:#DCEAE4;
+  --bg:       #F1ECE1;
+  --bg2:      #E7E0D1;
+  --surface:  #FBF9F4;
+  --surface2: #F3EFE6;
+  --border:   #E0D8C8;
+  --border2:  #D3CBBA;
+  --text:     #23282A;
+  --text2:    #5C6360;
+  --text3:    #8A8F8A;
+  --sage:     #7E9A76;
+  --sage-soft:#DDE7D6;
+  --slate:    #607796;
+  --slate-soft:#DEE4EC;
+  --sand:     #C9AE7E;
+  --warn:     #B4894A;
+  --warn-soft:#F0E6D2;
+  --radius:   16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Hanken Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+
+/* ─── NAV ─── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(241,236,225,0.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1120px;margin:0 auto;padding:0 28px;
+  height:68px;display:flex;align-items:center;gap:20px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:11px;
+  font-weight:800;font-size:18px;letter-spacing:-.02em;color:var(--text);
+  flex-shrink:0;
+}
+.nav-logo-icon{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--accent);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 12px -4px rgba(44,110,93,.45);
+  flex-shrink:0;
+}
+.nav-links{
+  display:flex;gap:28px;align-items:center;margin-left:auto;
+  font-size:14px;font-weight:600;color:var(--text2);
+}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{
+  background:var(--accent);color:#fff;
+  padding:10px 22px;border-radius:100px;
+  font-weight:700;font-size:14px;
+  transition:background .18s,transform .18s;
+  flex-shrink:0;
+}
+.nav-cta:hover{background:var(--accent-dk);transform:translateY(-1px);}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .nav-inner{padding:0 18px;}
+}
+
+/* ─── HERO ─── */
+.hero{
+  padding:72px 28px 0;
+  max-width:1120px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;
+}
+.hero-copy{max-width:540px;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent-soft);color:var(--accent);
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 16px;border-radius:100px;margin-bottom:24px;
+}
+.hero h1{
+  font-size:clamp(34px,5vw,54px);font-weight:800;line-height:1.1;
+  letter-spacing:-.03em;margin-bottom:20px;
+}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{
+  font-size:17px;line-height:1.65;color:var(--text2);
+  max-width:480px;margin-bottom:36px;
+}
+.hero-stores{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+.btn-store{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 22px;border-radius:13px;
+  font-weight:700;font-size:14px;line-height:1.2;
+  transition:all .18s;
+}
+.btn-store-apple{background:var(--text);color:#fff;}
+.btn-store-apple:hover{background:#3a4040;transform:translateY(-1px);}
+.btn-store-google{background:var(--surface);color:var(--text);border:1.5px solid var(--border2);}
+.btn-store-google:hover{background:var(--surface2);transform:translateY(-1px);}
+.btn-store-icon{font-size:20px;line-height:1;}
+.btn-store small{display:block;font-size:10.5px;font-weight:500;opacity:.65;margin-bottom:1px;}
+.hero-trust{font-size:13px;color:var(--text3);font-weight:500;}
+.hero-trust span{margin:0 6px;}
+
+/* Hero phone */
+.hero-phone{flex-shrink:0;padding-bottom:0;position:relative;}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;padding-bottom:0;}
+  .hero-phone{display:none;}
+}
+
+/* ─── PHONE SHELL ─── */
+.phone-shell{
+  width:260px;height:560px;
+  background:#1E2225;border-radius:36px;padding:8px;
+  box-shadow:0 32px 56px -20px rgba(20,24,25,.45),0 8px 20px -10px rgba(20,24,25,.3);
+  position:relative;flex-shrink:0;
+}
+.phone-shell-sm{width:230px;height:490px;}
+.phone-shell .notch{
+  position:absolute;left:50%;top:14px;transform:translateX(-50%);
+  width:12px;height:12px;border-radius:50%;background:#090c0d;z-index:6;
+  border:1.5px solid #2a2d2e;
+}
+.phone-inner{
+  width:100%;height:100%;border-radius:28px;overflow:hidden;
+  background:var(--bg);position:relative;
+  font-size:10px;/* scale everything ~0.67 */
+}
+
+/* ─── FEATURES ─── */
+.features{padding:88px 28px 80px;max-width:1120px;margin:0 auto;}
+.section-label{
+  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+.section-title{font-size:clamp(26px,3.5vw,38px);font-weight:800;letter-spacing:-.02em;margin-bottom:12px;}
+.section-sub{font-size:16px;color:var(--text2);max-width:520px;margin-bottom:48px;line-height:1.6;}
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:18px;
+}
+.feat-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:26px 24px;
+  transition:box-shadow .2s,transform .2s;
+}
+.feat-card:hover{box-shadow:0 8px 28px -12px rgba(44,110,93,.2);transform:translateY(-2px);}
+.feat-icon{
+  width:48px;height:48px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+}
+.feat-icon svg{width:24px;height:24px;}
+.feat-card h3{font-size:16px;font-weight:700;margin-bottom:8px;}
+.feat-card p{font-size:14px;color:var(--text2);line-height:1.6;}
+.free-tag{
+  display:inline-block;background:var(--accent-soft);color:var(--accent);
+  font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 9px;border-radius:100px;margin-top:12px;
+}
+
+/* ─── TONE CHECK SPOTLIGHT ─── */
+.spotlight{
+  background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:88px 28px;
+}
+.spotlight-inner{
+  max-width:1120px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center;
+}
+@media(max-width:860px){
+  .spotlight-inner{grid-template-columns:1fr;}
+  .spotlight-phone{display:none;}
+}
+.plus-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--warn-soft);color:var(--warn);
+  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;margin-bottom:20px;
+}
+.tone-bullets{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:14px;}
+.tone-bullets li{
+  display:flex;align-items:flex-start;gap:14px;
+  font-size:15px;color:var(--text2);line-height:1.5;
+}
+.tone-bullet-dot{
+  width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+
+/* ─── PLUS SECTION ─── */
+.plus-section{padding:88px 28px;max-width:1120px;margin:0 auto;}
+.plus-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;margin-top:48px;
+}
+.plus-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:24px;
+}
+.plus-card h4{font-size:15px;font-weight:700;margin-bottom:8px;}
+.plus-card p{font-size:13.5px;color:var(--text2);line-height:1.6;}
+.plus-card .plus-icon{
+  width:42px;height:42px;border-radius:11px;
+  background:var(--warn-soft);display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+}
+.plus-card .plus-icon svg{width:20px;height:20px;stroke:var(--warn);}
+
+/* ─── WORKS SOLO ─── */
+.solo-section{
+  background:var(--accent);color:#fff;
+  padding:72px 28px;text-align:center;
+}
+.solo-section h2{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:14px;}
+.solo-section p{font-size:16px;opacity:.85;max-width:480px;margin:0 auto 32px;line-height:1.6;}
+
+/* ─── DOWNLOAD ─── */
+.download{padding:88px 28px;text-align:center;}
+.download .section-title{text-align:center;}
+.download .section-sub{text-align:center;margin-left:auto;margin-right:auto;}
+.download .hero-stores{justify-content:center;margin-top:32px;}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:1px solid var(--border);
+  background:var(--surface);
+  padding:48px 28px 32px;
+}
+.footer-inner{max-width:1120px;margin:0 auto;}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr;
+  gap:40px;margin-bottom:40px;
+}
+.footer-logo{
+  display:flex;align-items:center;gap:10px;
+  font-weight:800;font-size:16px;margin-bottom:10px;
+}
+.footer-desc{font-size:13.5px;color:var(--text2);line-height:1.65;max-width:280px;}
+.footer-nav h4{
+  font-size:11px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--text3);font-weight:700;margin-bottom:14px;
+}
+.footer-nav a{
+  display:block;font-size:14px;color:var(--text2);
+  margin-bottom:9px;transition:color .15s;
+}
+.footer-nav a:hover{color:var(--accent);}
+.footer-bottom{
+  border-top:1px solid var(--border);padding-top:20px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;
+  font-size:12.5px;color:var(--text3);
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr;gap:28px;}
+}
+
+/* ─── EMBEDDED PHONE SCREENS ─── */
+/* These reproduce the design doc screens at ~0.67× scale inside the phone shell */
+.scr{overflow-y:auto;scrollbar-width:none;}
+.scr::-webkit-scrollbar{width:0;}
+
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/onepage">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 64 64" width="22" height="22" fill="none">
+          <rect x="20" y="24" width="30" height="34" rx="6" fill="#fff" opacity=".32"/>
+          <path d="M14 10 h22 l16 16 v27 a4 4 0 0 1 -4 4 H14 a4 4 0 0 1 -4 -4 V14 a4 4 0 0 1 4 -4 z" fill="#fff"/>
+          <path d="M36 10 v12 a4 4 0 0 0 4 4 h12 z" fill="#fff" opacity=".62"/>
+          <rect x="17" y="34" width="21" height="3.4" rx="1.7" fill="#2C6E5D"/>
+          <rect x="17" y="42" width="27" height="3.4" rx="1.7" fill="#2C6E5D" opacity=".5"/>
+        </svg>
+      </div>
+      OnePage
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#plus">OnePage Plus</a>
+      <a href="/onepage/privacy">Privacy</a>
+    </div>
+    <a class="nav-cta" href="#download">Get the app</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div style="max-width:1120px;margin:0 auto;padding:72px 28px 0;">
+<div class="hero" style="padding:0;margin:0;">
+  <div class="hero-copy">
+    <div class="hero-eyebrow">
+      <svg viewBox="0 0 64 64" width="16" height="16" fill="none">
+        <path d="M14 10 h22 l16 16 v27 a4 4 0 0 1 -4 4 H14 a4 4 0 0 1 -4 -4 V14 a4 4 0 0 1 4 -4 z" fill="currentColor"/>
+        <path d="M36 10 v12 a4 4 0 0 0 4 4 h12 z" fill="currentColor" opacity=".55"/>
+      </svg>
+      Hassle-free co-parenting
+    </div>
+    <h1>Everything for your kids,<br><em>in one place.</em></h1>
+    <p class="hero-sub">The custody schedule, messages, shared expenses, and family records that used to live across five different apps — unified in one calm, neutral place. Free for iOS and Android.</p>
+    <div class="hero-stores" id="download">
+      <a class="btn-store btn-store-apple" href="https://apps.apple.com/app/id6787043588" target="_blank" rel="noopener">
+        <span class="btn-store-icon">&#xf8ff;</span>
+        <span><small>Download on the</small>App Store</span>
+      </a>
+      <a class="btn-store btn-store-google" href="https://play.google.com/store/apps/details?id=com.bairatlabs.onepage" target="_blank" rel="noopener">
+        <span class="btn-store-icon">▶</span>
+        <span><small>Get it on</small>Google Play</span>
+      </a>
+    </div>
+    <p class="hero-trust">Free to download<span>·</span>iOS &amp; Android<span>·</span>No ads, ever</p>
+  </div>
+
+  <!-- Hero phone — Home dashboard screen -->
+  <div class="hero-phone">
+    <div class="phone-shell">
+      <div class="notch"></div>
+      <div class="phone-inner scr" style="background:#F1ECE1;font-family:'Hanken Grotesk',system-ui,sans-serif;">
+        <!-- status bar -->
+        <div style="display:flex;justify-content:space-between;padding:10px 17px 4px;font-size:9px;font-weight:700;color:#23282A;position:sticky;top:0;background:#F1ECE1;z-index:5;">
+          <span>9:41</span><span>●●● ▮</span>
+        </div>
+        <div style="padding:6px 15px 24px;">
+          <!-- greeting -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 13px;">
+            <div>
+              <div style="font-size:9px;color:#5C6360;font-weight:600;">Wednesday, June 17</div>
+              <div style="font-size:15px;font-weight:800;letter-spacing:-.02em;">Good morning, Maya</div>
+            </div>
+            <div style="width:28px;height:28px;border-radius:50%;background:#7E9A76;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;">M</div>
+          </div>
+
+          <!-- kids with you -->
+          <div style="background:#7E9A76;border-radius:14px;padding:14px;color:#fff;margin-bottom:10px;box-shadow:0 8px 18px -10px rgba(80,110,70,.6);">
+            <div style="font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85;">Right now</div>
+            <div style="font-size:17px;font-weight:800;letter-spacing:-.02em;margin:3px 0 2px;">The kids are with you</div>
+            <div style="font-size:9px;opacity:.9;">Until handoff Friday at 5:30 PM</div>
+            <div style="display:flex;gap:5px;margin-top:10px;">
+              <div style="background:rgba(255,255,255,.2);border-radius:6px;padding:4px 8px;font-size:8px;font-weight:700;">Ella</div>
+              <div style="background:rgba(255,255,255,.2);border-radius:6px;padding:4px 8px;font-size:8px;font-weight:700;">Theo</div>
+            </div>
+          </div>
+
+          <!-- next handoff -->
+          <div style="background:#FBF9F4;border:1px solid #E0D8C8;border-radius:12px;padding:10px 12px;margin-bottom:10px;display:flex;align-items:center;gap:9px;">
+            <div style="width:30px;height:30px;border-radius:8px;background:#C9AE7E;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3a2f18" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:7.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8A8F8A;">Next handoff</div>
+              <div style="font-size:10px;font-weight:700;">Friday, 5:30 PM · to Daniel</div>
+            </div>
+          </div>
+
+          <!-- two mini cards -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+            <div style="background:#FBF9F4;border:1px solid #E0D8C8;border-radius:12px;padding:10px;">
+              <div style="font-size:7.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A8F8A;margin-bottom:5px;">Messages</div>
+              <div style="font-size:9px;font-weight:600;line-height:1.35;">Daniel: "Ella has dentist Thurs at 3."</div>
+              <div style="margin-top:7px;display:inline-flex;align-items:center;gap:4px;font-size:8px;font-weight:700;color:#2C6E5D;">
+                <span style="width:5px;height:5px;border-radius:50%;background:#2C6E5D;"></span>1 unread
+              </div>
+            </div>
+            <div style="background:#FBF9F4;border:1px solid #E0D8C8;border-radius:12px;padding:10px;">
+              <div style="font-size:7.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A8F8A;margin-bottom:5px;">Pending expense</div>
+              <div style="font-size:13px;font-weight:800;letter-spacing:-.01em;">$60.00</div>
+              <div style="font-size:8.5px;color:#5C6360;margin-top:2px;">Swim lessons</div>
+              <div style="margin-top:6px;font-size:8px;font-weight:700;color:#B4894A;">Awaiting review</div>
+            </div>
+          </div>
+
+          <!-- this week -->
+          <div style="font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8A8F8A;margin-bottom:6px;">This week</div>
+          <div style="background:#FBF9F4;border:1px solid #E0D8C8;border-radius:12px;padding:4px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#C9AE7E;"></div>
+              <div style="flex:1;font-size:9.5px;font-weight:600;">Handoff to Daniel</div>
+              <div style="font-size:8.5px;color:#5C6360;font-weight:600;">Fri 5:30</div>
+            </div>
+            <div style="height:1px;background:#E0D8C8;margin:0 10px;"></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#607796;"></div>
+              <div style="flex:1;font-size:9.5px;font-weight:600;">Theo — soccer practice</div>
+              <div style="font-size:8.5px;color:#5C6360;font-weight:600;">Sat 10:00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- tab bar -->
+        <div style="position:sticky;bottom:0;display:flex;justify-content:space-around;align-items:center;padding:8px 6px 16px;background:#FBF9F4;border-top:1px solid #E0D8C8;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:#2C6E5D;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg>
+            <span style="font-size:7px;font-weight:700;">Home</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:#8A8F8A;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M3 9h18M8 3v3M16 3v3"/></svg>
+            <span style="font-size:7px;font-weight:600;">Calendar</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:#8A8F8A;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L3 21l2.3-6.4A8 8 0 1 1 21 11.5z"/></svg>
+            <span style="font-size:7px;font-weight:600;">Messages</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:#8A8F8A;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8h9a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg>
+            <span style="font-size:7px;font-weight:600;">Expenses</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ FEATURES ══ -->
+<section class="features" id="features">
+  <div class="section-label">What's included — free, always</div>
+  <h2 class="section-title">Six essentials, one calm place.</h2>
+  <p class="section-sub">Everything both parents need to stay on the same page about the kids — without the back-and-forth across texts, spreadsheets, and email threads.</p>
+  <div class="features-grid">
+
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#DCEAE4;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M3 9h18M8 3v3M16 3v3"/></svg>
+      </div>
+      <h3>Custody calendar</h3>
+      <p>Set a 2-2-3 rotation, week on/week off, every other weekend, or a fully custom schedule. Adjust individual days any time. Both parents always see the same view.</p>
+      <span class="free-tag">Free</span>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#DCEAE4;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L3 21l2.3-6.4A8 8 0 1 1 21 11.5z"/></svg>
+      </div>
+      <h3>Co-parent messaging</h3>
+      <p>Messages are timestamped and can never be secretly edited or deleted. A clear, neutral channel that keeps kid-related communication in one place — separate from personal texts.</p>
+      <span class="free-tag">Free</span>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#DCEAE4;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8h9a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg>
+      </div>
+      <h3>Shared expenses</h3>
+      <p>Log what you paid, choose a split, and track who owes what. Both parents see the same running balance — no more disputed amounts or lost receipts.</p>
+      <span class="free-tag">Free</span>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#DCEAE4;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Info library</h3>
+      <p>One shared place for each child's doctor, allergies, school contacts, emergency numbers, and pickup authorization. Either parent can update it; both always have it.</p>
+      <span class="free-tag">Free</span>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#DCEAE4;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12l2 2 4-4" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Shared photo &amp; video library</h3>
+      <p>A private shared album — both parents can add and view moments without needing to co-ordinate through personal photo apps or social media.</p>
+      <span class="free-tag">Free</span>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#DCEAE4;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      </div>
+      <h3>Works solo from day one</h3>
+      <p>You can set up your schedule, log expenses, and fill in the info library on your own — before your co-parent even joins. Invite them when you're both ready.</p>
+      <span class="free-tag">Free</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TONE CHECK SPOTLIGHT ══ -->
+<section class="spotlight">
+  <div class="spotlight-inner">
+    <div>
+      <div class="plus-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        OnePage Plus
+      </div>
+      <h2 class="section-title">A calmer message starts here.</h2>
+      <p class="section-sub" style="margin-bottom:0;">Before you hit send, OnePage's optional AI tone check reads your draft and flags language that might land harder than you intended — then offers a calmer version that makes the same point. You decide what to send.</p>
+      <ul class="tone-bullets">
+        <li>
+          <div class="tone-bullet-dot" style="background:#F0E6D2;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B4894A" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+          </div>
+          Spots wording that might read as heated or accusatory
+        </li>
+        <li>
+          <div class="tone-bullet-dot" style="background:#DCEAE4;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2.2" stroke-linecap="round"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L3 21l2.3-6.4A8 8 0 1 1 21 11.5z"/></svg>
+          </div>
+          Suggests a rewrite that makes the same point, more calmly
+        </li>
+        <li>
+          <div class="tone-bullet-dot" style="background:#DCEAE4;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2.2" stroke-linecap="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg>
+          </div>
+          Your draft is never stored — the check runs privately
+        </li>
+        <li>
+          <div class="tone-bullet-dot" style="background:#DCEAE4;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2C6E5D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+          </div>
+          You always choose what actually sends
+        </li>
+      </ul>
+    </div>
+
+    <!-- Messaging/tone-check phone -->
+    <div class="spotlight-phone" style="flex-shrink:0;">
+      <div class="phone-shell phone-shell-sm">
+        <div class="notch"></div>
+        <div class="phone-inner scr" style="background:#F1ECE1;font-family:'Hanken Grotesk',system-ui,sans-serif;display:flex;flex-direction:column;">
+          <!-- status bar -->
+          <div style="display:flex;justify-content:space-between;padding:10px 17px 4px;font-size:9px;font-weight:700;color:#23282A;background:#F1ECE1;">
+            <span>9:41</span><span>●●● ▮</span>
+          </div>
+          <!-- thread header -->
+          <div style="display:flex;align-items:center;gap:8px;padding:5px 14px 10px;border-bottom:1px solid #E0D8C8;">
+            <div style="width:28px;height:28px;border-radius:50%;background:#607796;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;">D</div>
+            <div>
+              <div style="font-weight:700;font-size:11px;">Daniel</div>
+              <div style="font-size:8.5px;color:#5C6360;">Co-parent · Ella &amp; Theo</div>
+            </div>
+          </div>
+          <!-- messages -->
+          <div class="scr" style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:3px;">
+            <div style="text-align:center;font-size:7.5px;font-weight:600;color:#8A8F8A;margin-bottom:5px;">Today</div>
+            <div style="align-self:flex-start;max-width:80%;background:#FBF9F4;border:1px solid #E0D8C8;border-radius:11px 11px 11px 3px;padding:7px 9px;font-size:9px;line-height:1.4;">Running about 15 min behind for Friday pickup — traffic on the bridge.</div>
+            <div style="align-self:flex-start;font-size:7px;color:#8A8F8A;margin:0 0 5px 4px;">8:02 AM</div>
+          </div>
+          <!-- tone check banner -->
+          <div style="background:#F0E6D2;border:1px solid #B4894A;border-radius:10px;padding:9px 10px;margin:0 10px 8px;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#B4894A" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+              <span style="font-size:9px;font-weight:700;color:#B4894A;">This might read as heated</span>
+            </div>
+            <p style="margin:0 0 8px;font-size:8.5px;line-height:1.45;color:#5C6360;">Strong wording can raise the temperature. Want to send a calmer version?</p>
+            <div style="display:flex;gap:6px;">
+              <div style="flex:1;background:#2C6E5D;color:#fff;border-radius:7px;padding:7px 6px;font-size:8.5px;font-weight:700;text-align:center;">See calmer version</div>
+              <div style="background:transparent;color:#5C6360;border:1px solid #D3CBBA;border-radius:7px;padding:7px 6px;font-size:8.5px;font-weight:700;text-align:center;">Send as is</div>
+            </div>
+          </div>
+          <!-- composer -->
+          <div style="border-top:1px solid #E0D8C8;background:#FBF9F4;padding:9px 12px 16px;">
+            <div style="display:flex;align-items:flex-end;gap:6px;">
+              <div style="flex:1;background:#F1ECE1;border:1px solid #D3CBBA;border-radius:14px;padding:8px 10px;font-size:9px;line-height:1.4;color:#23282A;min-height:30px;">I can't believe you forgot again — this is always happening.</div>
+              <div style="width:30px;height:30px;border-radius:50%;background:#2C6E5D;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+            <div style="text-align:center;margin-top:6px;font-size:7px;color:#8A8F8A;display:flex;align-items:center;justify-content:center;gap:4px;">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z" stroke-linejoin="round"/></svg>
+              Tone check runs privately before anything sends
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ONEPAGE PLUS ══ -->
+<section class="plus-section" id="plus">
+  <div class="section-label">OnePage Plus</div>
+  <h2 class="section-title">More tools for families that need them.</h2>
+  <p class="section-sub">OnePage Plus is an optional subscription that unlocks a handful of extra features. Everything above stays free, always.</p>
+  <div class="plus-grid">
+
+    <div class="plus-card">
+      <div class="plus-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B4894A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+      </div>
+      <h4>AI tone check</h4>
+      <p>Flags a message that might read as heated and offers a calmer rewrite before you send it. You always decide what goes through.</p>
+    </div>
+
+    <div class="plus-card">
+      <div class="plus-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B4894A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+      </div>
+      <h4>Expense approval flow</h4>
+      <p>Log an expense and ask your co-parent to approve their share before it's added to the balance — no surprises, full transparency.</p>
+    </div>
+
+    <div class="plus-card">
+      <div class="plus-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B4894A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+      </div>
+      <h4>One-tap PDF export</h4>
+      <p>Export a clean PDF summary of the custody schedule, expense ledger, and message log for any date range — for your own files or to share with a lawyer or mediator.</p>
+    </div>
+
+    <div class="plus-card">
+      <div class="plus-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B4894A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      </div>
+      <h4>Support for more than one child</h4>
+      <p>Track multiple children with individual profiles, allergies, school details, and their own expense records — all in one family account.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SOLO BANNER ══ -->
+<section class="solo-section">
+  <h2>Start on your own. Invite when you're ready.</h2>
+  <p>OnePage works fully from the moment you sign up — set your schedule, log expenses, and fill in the info library before your co-parent even joins. There's no pressure to invite them right away.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a class="btn-store" href="https://apps.apple.com/app/id6787043588" target="_blank" rel="noopener"
+       style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.3);">
+      <span class="btn-store-icon">&#xf8ff;</span>
+      <span><small>Download on the</small>App Store</span>
+    </a>
+    <a class="btn-store" href="https://play.google.com/store/apps/details?id=com.bairatlabs.onepage" target="_blank" rel="noopener"
+       style="background:#fff;color:#23282A;">
+      <span class="btn-store-icon">▶</span>
+      <span><small>Get it on</small>Google Play</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <div style="width:32px;height:32px;border-radius:8px;background:#2C6E5D;display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 64 64" width="18" height="18" fill="none">
+              <path d="M14 10 h22 l16 16 v27 a4 4 0 0 1 -4 4 H14 a4 4 0 0 1 -4 -4 V14 a4 4 0 0 1 4 -4 z" fill="#fff"/>
+              <path d="M36 10 v12 a4 4 0 0 0 4 4 h12 z" fill="#fff" opacity=".62"/>
+            </svg>
+          </div>
+          OnePage
+        </div>
+        <p class="footer-desc">Hassle-free co-parenting — by Bairat Labs, LLC. No ads, no sides taken, no legal advice implied.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>App</h4>
+        <a href="#features">Features</a>
+        <a href="#plus">OnePage Plus</a>
+        <a href="https://apps.apple.com/app/id6787043588" target="_blank" rel="noopener">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.bairatlabs.onepage" target="_blank" rel="noopener">Google Play</a>
+      </div>
+      <div class="footer-nav">
+        <h4>Legal &amp; support</h4>
+        <a href="/onepage/privacy">Privacy Policy</a>
+        <a href="/onepage/delete-account">Delete my data</a>
+        <a href="mailto:bairatlabs@gmail.com">Contact us</a>
+        <a href="/">Bairat Labs</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Bairat Labs, LLC. All rights reserved.</span>
+      <span>No ads &middot; No sides taken &middot; Kids first</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
