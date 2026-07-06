@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanna — Delete Your Account</title>
+<meta name="description" content="How to delete your Hanna account and associated data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #E7DDCC;
+  --surface:     #FBF6EE;
+  --surface2:    #F4EADB;
+  --border:      #E2D5C1;
+  --border2:     #DBCDB6;
+  --text:        #2A241F;
+  --text2:       #5A5047;
+  --text3:       #857A6C;
+  --accent:      #B4674A;
+  --accent-soft: #EAD5C6;
+  --sage:        #5E6E52;
+  --sage-soft:   #D8DECB;
+  --cta:         #F2A03D;
+  --cta-soft:    #FDEECE;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hanken Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:var(--accent);font-weight:600}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{
+  background:rgba(231,221,204,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 28px;height:64px;
+  display:flex;align-items:center;gap:14px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  font-weight:800;font-size:17px;letter-spacing:-.02em;color:var(--text);
+  text-decoration:none;
+}
+.nav-logo-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(145deg,#E8985A,#B4674A);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+nav a.back{
+  margin-left:auto;font-size:13px;font-weight:600;
+  color:var(--text2);text-decoration:none;transition:color .15s;
+}
+nav a.back:hover{color:var(--accent)}
+
+/* CONTENT */
+.page-wrap{max-width:680px;margin:0 auto;padding:56px 28px 96px}
+.page-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;
+}
+.page-title{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-.03em;margin-bottom:12px}
+.page-sub{font-size:16px;color:var(--text2);line-height:1.7;margin-bottom:48px;max-width:520px}
+
+/* Method cards (same as contact cards) */
+.method-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:28px;margin-bottom:16px;
+  display:flex;gap:18px;align-items:flex-start;
+}
+.method-icon{
+  width:46px;height:46px;border-radius:13px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.method-card h2{font-size:16px;font-weight:800;margin-bottom:8px}
+.method-card p{font-size:14.5px;color:var(--text2);line-height:1.7;margin-bottom:6px}
+.method-card p:last-child{margin-bottom:0}
+.method-card a{color:var(--accent);font-weight:700}
+
+/* Step list inside method card */
+.step-list{
+  list-style:none;padding:0;margin:10px 0 0;
+  display:flex;flex-direction:column;gap:6px;
+}
+.step-list li{
+  font-size:14px;color:var(--text2);line-height:1.6;
+  display:flex;align-items:baseline;gap:10px;
+}
+.step-list li::before{
+  content:attr(data-n);
+  min-width:20px;height:20px;
+  background:var(--accent-soft);border-radius:50%;
+  font-size:11px;font-weight:800;color:var(--accent);
+  display:inline-flex;align-items:center;justify-content:center;
+  flex-shrink:0;position:relative;top:1px;
+}
+
+/* Section divider */
+.section-label{
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text3);margin:40px 0 16px;
+}
+
+/* Data list card */
+.data-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:24px 28px;margin-bottom:16px;
+}
+.data-card h2{font-size:16px;font-weight:800;margin-bottom:16px}
+.data-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.data-list li{
+  font-size:14.5px;color:var(--text2);line-height:1.6;
+  display:flex;align-items:flex-start;gap:12px;
+  padding-bottom:10px;border-bottom:1px solid var(--border);
+}
+.data-list li:last-child{padding-bottom:0;border-bottom:none}
+.data-list .check{
+  width:20px;height:20px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+.data-list .check-yes{background:var(--sage-soft)}
+.data-list .check-no{background:rgba(94,110,82,.12)}
+
+/* TODO placeholder */
+.todo{
+  display:inline-block;background:#FFF9C4;
+  border:1px solid #E8C84A;border-radius:4px;
+  padding:1px 6px;font-size:13px;font-weight:700;
+  color:#7A6000;font-family:ui-monospace,monospace;
+}
+
+/* Subscription warning */
+.warning-card{
+  background:var(--cta-soft);border:1px solid rgba(242,160,61,.35);
+  border-radius:18px;padding:22px 24px;margin-top:8px;
+  display:flex;gap:16px;align-items:flex-start;
+}
+.warning-card p{font-size:14.5px;color:var(--text2);line-height:1.7}
+.warning-card p strong{color:var(--text)}
+.warning-card a{color:var(--accent);font-weight:700}
+
+/* Note band */
+.note-band{
+  background:var(--sage-soft);border:1px solid rgba(94,110,82,.2);
+  border-radius:14px;padding:16px 20px;margin-top:32px;
+  display:flex;gap:12px;align-items:center;
+  font-size:14px;color:var(--text2);
+}
+
+/* Footer */
+footer{
+  border-top:1px solid var(--border);background:var(--surface);
+  padding:24px 28px;text-align:center;font-size:13px;color:var(--text3);
+}
+footer a{color:var(--text2);font-weight:600;text-decoration:none}
+footer a:hover{color:var(--accent)}
+footer span{margin:0 8px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/hanna">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 32 32" width="20" height="20" fill="none">
+        <defs>
+          <radialGradient id="orb-nav" cx="38%" cy="32%" r="65%">
+            <stop offset="0%" stop-color="#F8D478"/>
+            <stop offset="50%" stop-color="#E8874A"/>
+            <stop offset="100%" stop-color="#C06038"/>
+          </radialGradient>
+        </defs>
+        <circle cx="16" cy="16" r="13" fill="url(#orb-nav)"/>
+        <ellipse cx="12" cy="12" rx="4" ry="2.5" fill="rgba(255,255,255,.28)" transform="rotate(-25 12 12)"/>
+      </svg>
+    </div>
+    Hanna
+  </a>
+  <a class="back" href="/hanna">← Back to Hanna</a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-eyebrow">Account Management</div>
+  <h1 class="page-title">Delete Your Hanna Account</h1>
+  <p class="page-sub">You can request deletion of your Hanna account and all associated personal data at any time. Choose whichever method is easiest for you.</p>
+
+  <!-- Method 1: In-app -->
+  <div class="method-card">
+    <div class="method-icon" style="background:var(--accent-soft)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4674A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"/>
+      </svg>
+    </div>
+    <div style="flex:1">
+      <h2>Delete in the app <span style="font-size:12px;font-weight:600;color:var(--sage);background:var(--sage-soft);border-radius:6px;padding:2px 8px;margin-left:6px;vertical-align:middle">Fastest</span></h2>
+      <p>Follow these steps inside the Hanna app:</p>
+      <ul class="step-list">
+        <li data-n="1">Open Hanna and tap the <strong>"You"</strong> tab at the bottom of the screen</li>
+        <li data-n="2">Go to <strong>Settings → Account → Delete Account</strong> <span class="todo">[TODO: confirm exact in-app menu path]</span></li>
+        <li data-n="3">Confirm the deletion when prompted</li>
+      </ul>
+      <p style="margin-top:14px;font-size:13px;color:var(--text3)">Deletion begins immediately. Your data is permanently removed within 30 days.</p>
+    </div>
+  </div>
+
+  <!-- Method 2: Email -->
+  <div class="method-card">
+    <div class="method-icon" style="background:var(--sage-soft)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5E6E52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="3"/>
+        <path d="m2 7 10 7 10-7"/>
+      </svg>
+    </div>
+    <div style="flex:1">
+      <h2>Request by email</h2>
+      <p>Send an email from the address associated with your Hanna account to:</p>
+      <p><a href="mailto:bairatlabs@gmail.com?subject=Delete%20My%20Hanna%20Account">bairatlabs@gmail.com</a></p>
+      <p style="margin-top:8px">Use the subject line: <strong>"Delete My Hanna Account"</strong></p>
+      <p style="margin-top:8px;font-size:13px;color:var(--text3)">We'll confirm receipt and process your request within <span class="todo">[TODO: confirm SLA, e.g. 30 days]</span>. You'll receive a confirmation email when your data has been removed.</p>
+    </div>
+  </div>
+
+  <!-- What gets deleted -->
+  <div class="section-label">What gets deleted</div>
+
+  <div class="data-card">
+    <h2>Data permanently deleted</h2>
+    <ul class="data-list">
+      <li>
+        <span class="check check-yes">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5E6E52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span><strong>Account profile</strong> — your name, email address, and account credentials</span>
+      </li>
+      <li>
+        <span class="check check-yes">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5E6E52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span><strong>Chat &amp; conversation history</strong> — all text and voice conversations with Hanna</span>
+      </li>
+      <li>
+        <span class="check check-yes">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5E6E52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span><strong>Mood check-in data</strong> — all logged moods, notes, and check-in history</span>
+      </li>
+      <li>
+        <span class="check check-yes">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5E6E52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span><strong>Voice recordings</strong> — any audio data tied to your account from voice mode sessions</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- What may be retained -->
+  <div class="section-label">What may be retained</div>
+
+  <div class="data-card">
+    <h2>Data that may be kept after deletion <span class="todo" style="font-size:11px;vertical-align:middle;margin-left:8px">[TODO: confirm retention specifics]</span></h2>
+    <ul class="data-list">
+      <li>
+        <span class="check check-no">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 6h6" stroke="#857A6C" stroke-width="1.75" stroke-linecap="round"/></svg>
+        </span>
+        <span><strong>Anonymised usage analytics</strong> — aggregate data that cannot be linked back to you (e.g. total sessions, feature usage counts). This contains no personal information.</span>
+      </li>
+      <li>
+        <span class="check check-no">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 6h6" stroke="#857A6C" stroke-width="1.75" stroke-linecap="round"/></svg>
+        </span>
+        <span><strong>Transaction records</strong> — purchase and subscription receipts retained by RevenueCat and the App Store / Google Play for legal and billing compliance. These records are held by the payment processors under their own retention policies.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Subscription warning -->
+  <div class="section-label">Important: subscriptions</div>
+
+  <div class="warning-card">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C97C1E" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px">
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+      <line x1="12" y1="9" x2="12" y2="13"/>
+      <line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2.5"/>
+    </svg>
+    <p><strong>Deleting your account does not cancel your subscription.</strong> If you have an active Hanna Premium subscription, you must cancel it separately through the App Store or Google Play before or after deleting your account — otherwise you may continue to be billed.<br><br>
+    To cancel on iOS: <strong>Settings → [your name] → Subscriptions</strong><br>
+    To cancel on Android: <strong>Google Play → Profile → Payments &amp; subscriptions → Subscriptions</strong></p>
+  </div>
+
+  <div class="note-band">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5E6E52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2.5"/></svg>
+    Have questions? Email <a href="mailto:bairatlabs@gmail.com?subject=Hanna%20Support">bairatlabs@gmail.com</a> or visit our <a href="/hanna/contact">contact page</a>.
+  </div>
+
+</div>
+
+<footer>
+  <a href="/hanna">Hanna</a><span>·</span>
+  <a href="/hanna/privacy">Privacy Policy</a><span>·</span>
+  <a href="/hanna/contact">Contact</a><span>·</span>
+  <a href="/">Bairat Labs</a>
+  <br><br>
+  © 2026 Bairat Labs, LLC
+</footer>
+
+</body>
+</html>
