@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connections | Bairat Studio</title>
+  <meta name="description" content="Connect and manage authorized publishing accounts in Bairat Studio.">
+  <link rel="stylesheet" href="/social/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/social/">&#10022; Bairat Studio</a>
+      <nav class="nav" aria-label="Studio navigation"><a href="/social/privacy/">Privacy</a><a href="/social/terms/">Terms</a></nav>
+    </div>
+  </header>
+  <main class="studio-shell">
+    <aside class="sidebar">
+      <h2>Workspace</h2>
+      <a class="active" href="/social/app/">Connections</a>
+      <a href="#queue">Publishing queue</a>
+      <a href="#history">History</a>
+    </aside>
+    <section class="workspace">
+      <div class="workspace-head">
+        <div><h1>Connections</h1><p>Authorize the accounts Bairat Studio may publish to.</p></div>
+        <a class="button" href="https://social.bairatlabs.com/auth/tiktok/start">Connect TikTok</a>
+      </div>
+      <div class="grid">
+        <article class="card connection">
+          <div class="icon">TT</div>
+          <div class="connection-info"><strong>TikTok</strong><span>No account connected yet</span></div>
+          <span class="status">Ready to connect</span>
+        </article>
+        <article class="card connection">
+          <div class="icon">IG</div>
+          <div class="connection-info"><strong>Instagram</strong><span>Meta connection is being configured</span></div>
+          <span class="status">Setup in progress</span>
+        </article>
+      </div>
+      <section class="section" id="queue">
+        <div class="workspace-head"><div><h1>Publishing queue</h1><p>Approved posts will appear here with their destination and status.</p></div></div>
+        <div class="card"><p>The queue is empty. Connect an account to prepare the first automated post.</p></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
