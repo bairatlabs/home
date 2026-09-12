@@ -11,20 +11,26 @@
   <main>
     <a href="../">← Allerova</a>
     <h1>Privacy Policy</h1>
-    <p class="lead">Effective 2 September 2026</p>
+    <p class="lead">Effective 8 September 2026</p>
     <h2>Overview</h2>
-    <p>Allerova 1.0 is provided by Bairat Labs, LLC. The app does not require an account and does not include advertising, behavioral analytics, or tracking services.</p>
+    <p>Allerova 1.0 is provided by Bairat Labs. The app does not require an account or include advertising. Profiles and label content stay on your device. Subscription and Android text-recognition providers process the technical information described below.</p>
     <h2>Data stored on your device</h2>
     <p>Your profile name, known-allergy selections, extracted ingredient text, and scan results are stored in Allerova's local app storage. Bairat Labs does not receive this information.</p>
     <h2>Camera and label photos</h2>
     <p>Camera access is used only when you choose to photograph an ingredient label. Text recognition happens on the device. Allerova does not upload captured photos or add them to scan history. The operating system may temporarily keep camera files in app cache.</p>
-    <h2>Subscriptions</h2>
+    <h2>Local diagnostics</h2>
+    <p>Allerova stores fixed counters for setup, scans, OCR outcomes, label review, uncertainty, paywall views, purchases, and restores. These counters do not contain a profile, restriction, country, photo, label text, result detail, or user identifier. They remain on the device and are never uploaded. You can export or reset them in Settings.</p>
+    <h2>Optional usage analytics</h2>
+    <p>In builds that offer optional usage analytics, it is off by default. If an adult opts in through Settings, Allerova sends basic feature-use events, event times, platform, and a resettable app-generated identifier to our AWS collector in the United States and then to Google Analytics. The Firebase SDK also sends basic app and device activity directly to Google, which may include approximate region inferred by Google from network information. Advertising identifiers, advertising personalization, and automatic screen reporting are disabled. We do not send names, allergy selections, confirmed food-label country, photos, ingredient text, or result details to these analytics services. Your choice does not affect free or paid features.</p>
+    <p>Unsent app events expire after 24 hours. AWS removes the queued payload when dispatch begins and schedules remaining collector records for deletion after 24 hours; automatic database deletion may take additional time. Failed-delivery queues expire after one day and operational logs after seven days. Google retains analytics data according to the property's retention settings and its policies. Turning analytics off stops new collection, clears unsent app events, and resets the local analytics identifier. It does not recall already delivered events. To ask about access or deletion of analytics information, contact bairatlabs@gmail.com. The current implementation does not link analytics identifiers to your name or local profile.</p>
+    <h2>Provider processing</h2>
+    <p>On Android, Google ML Kit processes label text on the device. Its SDK sends technical app and device information, identifiers, performance diagnostics, and API usage events to Google over an encrypted connection for diagnostics and usage analytics. Label photos and recognized text are not sent to Google by ML Kit. These provider diagnostics are separate from Allerova's local counters, and resetting local counters does not reset Google's records. See <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google's ML Kit data disclosure</a>.</p>
     <p>If you use a subscription feature, Apple or Google Play processes the payment and RevenueCat helps Allerova verify whether Pro access is active. RevenueCat receives purchase and subscription status, product and transaction information supplied by the applicable app store, an anonymous app user identifier, IP address, and basic app, operating-system, and device information needed to provide, secure, and restore access. Bairat Labs does not send your profile, allergy list, label photos, ingredient text, or scan results to RevenueCat.</p>
     <p>Subscription records are retained as needed to provide purchase history, restore access, prevent fraud, and meet legal or accounting obligations. Apple, Google, and RevenueCat process information under their own privacy policies.</p>
     <h2>Sharing</h2>
     <p>If you use the system share sheet to export a result or your local data, you choose the destination. Allerova does not send that information automatically.</p>
     <h2>Deletion</h2>
-    <p>You can permanently remove the profile and scan history stored by Allerova from Settings. Uninstalling the app also removes its local data, subject to your device backup settings. Subscription transaction records held by Apple, Google, or RevenueCat are not deleted by the in-app local-data control.</p>
+    <p>You can reset local diagnostic counters alone or permanently remove the profile, scan history, review access, and counters stored by Allerova from Settings. Uninstalling the app also removes its local data, subject to your device backup settings. Subscription transaction records held by Apple, Google, or RevenueCat and Google ML Kit diagnostics are not deleted by the in-app local-data control.</p>
     <h2>Children</h2>
     <p>Allerova is operated by an adult managing a local profile. It does not ask for a birthdate, location, contact information, or account.</p>
     <h2>Contact</h2>
