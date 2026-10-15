@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["7G8BJH8GU7.com.bairatlabs.pregnancybible"],
+        "components": [{ "/": "/i/*" }]
+      }
+    ]
+  }
+}
