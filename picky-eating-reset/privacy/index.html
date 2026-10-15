@@ -11,7 +11,7 @@
   <main class="content"><div class="wrap">
     <span class="eyebrow">Privacy Policy</span>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective September 2, 2026</p>
+    <p class="meta">Effective October 15, 2026</p>
     <div class="callout"><strong>The short version</strong><br>Picky Eating Reset is for parents. We do not sell personal information, show advertising, use cross-app tracking, or create independent child accounts. Profile information is used to personalize food-exploration guidance and apply safety filters.</div>
 
     <h2>1. Who we are</h2>
@@ -38,7 +38,12 @@
     <p>If a parent enables an account, profile and progress information is synchronized through Amazon Web Services, which provides email authentication, API processing, encrypted application storage, and operational logs. RevenueCat provides subscription-status services. Apple and Google process store purchases. Payment-card details are handled by Apple or Google and are not received by Bairat Labs.</p>
     <p>Versions offering optional AI use Gemini 3.8 Flash through Google Cloud. Versions supporting compatible app updates use Expo update services. Update checks send technical information such as platform, runtime version and update identifiers, not food profiles or coach conversations.</p>
 
-    <h2>6. On-device and optional AI coaching</h2>
+    <h2>6. Optional product analytics</h2>
+    <p>In versions offering usage measurement, it is off until a parent allows it. When enabled, Google Analytics for Firebase receives screen and feature interactions, subscription-flow status, an app installation identifier, and technical app and device information to measure visits and return use, including before sign-in. We do not assign your parent account ID to Google Analytics or use advertising personalization.</p>
+    <p>Our Google analytics events exclude food-profile characteristics, child-action details, safety handoffs, names, email addresses, food names, notes, and coach conversations. A separate bounded queue sends allowlisted product events to our authenticated AWS API after sign-in, including coarse return-day buckets, interaction types, and coach performance. AWS product-event logs omit account identifiers and are retained for up to 30 days.</p>
+    <p>Turn usage measurement off in Settings to stop new collection, clear the local queue, and reset the Firebase analytics identifier. Deleting local app data also resets this choice and identifier. Neither action recalls information already received by Google or AWS. You can use the core app without enabling usage measurement.</p>
+
+    <h2>7. On-device and optional AI coaching</h2>
     <p>The on-device coach uses scripted guidance included in the app. Without AI consent, coaching questions stay on the device. AI availability depends on the app version and service rollout; this policy does not mean AI is enabled in every version. The coach is not an emergency, diagnostic, or treatment service.</p>
     <p>In versions offering AI, it is off until a parent explicitly enables it on that device. With consent, questions, up to two recent exchanges, age band, familiar foods, preparation details, sensory preferences, allergies, dietary exclusions and up to 12 food logs from the last seven days are sent to Bairat Labs' authenticated AWS API in the United States. Questions, exchanges and selected food-profile details go to Gemini through Google Cloud's global service, which is not limited to United States processing. Our service assembles exact log summaries rather than asking Gemini to rewrite individual records; for reflections Google receives whether records exist. Typed questions and previous exchanges may themselves contain observations.</p>
     <p>The profile name, email field and log notes are omitted from AI requests. We attempt to remove the child's name and email addresses from text, but cannot guarantee removal of identifying details you type. Please leave other identifying details out. Google-specific consent is required; consent to a different AI provider does not automatically carry over.</p>
@@ -46,20 +51,22 @@
     <p>Weekly comparisons of Gemini and Haiku use fictional scenarios only. We do not copy parent conversations to Haiku or retain them for these comparisons. AI can make mistakes and does not replace professional medical or feeding advice.</p>
     <p>Parents can turn AI off in Settings without a subscription. This stops new AI requests but cannot recall information already sent. Declining AI does not prevent use of the on-device coach or privacy controls.</p>
 
-    <h2>7. Children</h2>
+    <h2>8. Children</h2>
     <p>The app is installed, controlled, and used by a parent or legal guardian. Child Explorer is a brief shared activity. It does not create a child account or request a child's email address, phone number, precise location, contacts, photos, or advertising identifier.</p>
 
-    <h2>8. Retention and deletion</h2>
+    <h2>9. Retention and deletion</h2>
     <p>Local information remains until the parent deletes it or removes the app. Account information remains while the account is active. A parent can permanently delete the account and current synchronized app record in Settings. Operational logs are retained for 30 days. Limited transaction, security, or legal records may be retained where required for fraud prevention, legal compliance, dispute resolution, or transaction reconciliation. See <a href="/picky-eating-reset/delete-account">Delete your data</a> for instructions.</p>
     <p>Optional AI conversation context remains in app memory until the app closes or the conversation is reset; our AI endpoint does not retain it. Daily AI usage counters and request references expire after two days, monthly counters after 35 days, and reported-response references, categories and model identifiers after 30 days, subject to AWS deletion processing. A response report does not contain the question or answer. Account deletion removes the parent's AI usage and report records from our active application storage.</p>
 
-    <h2>9. Security and international processing</h2>
-    <p>We use encrypted transport, access controls, and provider security features designed to protect information. No system is perfectly secure. Bairat Labs and the AWS app infrastructure are based in the United States. Optional Gemini requests use Google Cloud's global service and may be processed outside the United States.</p>
+    <p>Google Analytics records follow the property's retention settings and <a href="https://support.google.com/analytics/answer/7667196">Google's data-retention rules</a>, not the 30-day AWS log period. Aggregated reports can remain after event-level retention expires. Resetting an analytics identifier does not automatically erase previously received records. Contact us for help with an access or deletion request.</p>
 
-    <h2>10. Your choices</h2>
-    <p>You can decline account sync, decline or disable optional AI, disable notifications, edit profile details, restore purchases, delete local data, delete your account and synchronized data in Settings, or contact us to request access, correction, portability, or deletion where applicable.</p>
+    <h2>10. Security and international processing</h2>
+    <p>We use encrypted transport, access controls, and provider security features designed to protect information. No system is perfectly secure. Bairat Labs and the AWS app infrastructure are based in the United States. Optional Gemini requests use Google Cloud's global service and may be processed outside the United States. Optional analytics is processed by Google's services and may be processed outside your country under the applicable provider terms.</p>
 
-    <h2>11. Changes and contact</h2>
+    <h2>11. Your choices</h2>
+    <p>You can decline account sync, decline or disable optional usage measurement, decline or disable optional AI, disable notifications, edit profile details, restore purchases, delete local data, delete your account and synchronized data in Settings, or contact us to request access, correction, portability, or deletion where applicable.</p>
+
+    <h2>12. Changes and contact</h2>
     <p>Material changes will be reflected by updating the effective date and, where appropriate, providing notice in the app. Privacy questions can be sent to <a href="mailto:bairatlabs@gmail.com?subject=Picky%20Eating%20Reset%20Privacy">bairatlabs@gmail.com</a>.</p>
   </div></main>
   <footer class="footer"><div class="wrap"><a href="/picky-eating-reset">App home</a><a href="/picky-eating-reset/terms">Terms</a><a href="/picky-eating-reset/support">Support</a><p>© 2026 Bairat Labs, LLC</p></div></footer>
