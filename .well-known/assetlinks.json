@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bairatlabs.pregnancybible",
+      "sha256_cert_fingerprints": [
+        "76:2C:86:6D:98:EB:B8:ED:EA:00:DB:79:86:69:F3:D6:F9:49:75:20:66:C0:A0:0C:7B:6D:17:E1:C8:8D:47:9A",
+        "71:3A:90:20:FC:83:7C:D8:D4:7B:5D:4A:AA:85:01:55:78:0C:7C:DF:D5:39:D2:5E:7F:88:CB:DB:78:B6:DC:AB"
+      ]
+    }
+  }
+]
